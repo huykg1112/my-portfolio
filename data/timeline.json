@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "year": "2021",
+    "title": "Started Software Engineering",
+    "description": "Enrolled in Can Tho University, beginning my journey in web development"
+  },
+  {
+    "id": 2,
+    "year": "2024",
+    "title": "IT Intern at UTA Co., Ltd",
+    "description": "Built AI pest diagnosis system and optimized web applications"
+  },
+  {
+    "id": 3,
+    "year": "2024",
+    "title": "Group Project Success",
+    "description": "Developed Booking Homestay platform with real-time chat features"
+  },
+  {
+    "id": 4,
+    "year": "2025",
+    "title": "Developer Intern at Green Space",
+    "description": "Contributed to AutoTMS project, focusing on UI/UX optimization"
+  },
+  {
+    "id": 5,
+    "year": "Current",
+    "title": "Developer Intern at Teknix Corporation",
+    "description": "Building and maintaining websites for international dental clinics"
+  }
+]

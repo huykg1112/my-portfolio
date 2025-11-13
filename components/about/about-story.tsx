@@ -42,16 +42,16 @@ export default function AboutStory() {
             animate={isVisible ? "visible" : "hidden"}
           >
             <motion.p className="text-lg" variants={itemVariants}>
-              With over 3 years of experience in fullstack development, I&apos;ve had the privilege of working with
-              startups and established companies to build digital solutions that matter.
+              I&apos;m a final-year Software Engineering student at Can Tho University (GPA: 3.55/4.0) with hands-on 
+              experience as a Front-End and Full-Stack Developer in real-world projects.
             </motion.p>
             <motion.p className="text-lg" variants={itemVariants}>
-              I believe that great software is built at the intersection of beautiful design and solid engineering.
-              Every line of code I write and every interface I design is with the user in mind.
+              Skilled in ReactJS, Next.js, NestJS, and PostgreSQL, I focus on building scalable, user-friendly web 
+              applications. I&apos;ve worked on projects ranging from e-commerce platforms to AI-powered diagnostic systems.
             </motion.p>
             <motion.p className="text-lg" variants={itemVariants}>
-              My journey began with a curiosity about how things work, and now I&apos;m driven by the desire to create
-              products that make people&apos;s lives easier and more enjoyable.
+              Currently enhancing my technical expertise and English communication skills, my goal is to become a 
+              professional Front-End Developer, continuously improving with modern web tools and best practices.
             </motion.p>
           </motion.div>
 

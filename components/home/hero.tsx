@@ -28,7 +28,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center pt-32 px-6">
+    <section ref={ref} className="min-h-screen flex items-center pt-36 px-6">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -49,13 +49,13 @@ export default function Hero() {
             </motion.div>
 
             <motion.div className="space-y-2" variants={itemVariants}>
-              <p className="text-sm text-muted-foreground">A Designer who</p>
+              <p className="text-sm text-muted-foreground">A Developer who</p>
               <h2 className="text-5xl md:text-7xl font-extrabold text-foreground">
-                Judges a book <br /> by its{" "}
-                <span className="text-primary">cover</span>...
+                Builds <br /> scalable{" "}
+                <span className="text-primary">solutions</span>
               </h2>
               <p className="text-sm text-muted-foreground pt-2">
-                Because if the cover does not impress you what else can?
+                Turning ideas into user-friendly web applications
               </p>
             </motion.div>
           </motion.div>
@@ -72,7 +72,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.div
-              className="relative w-80 h-80 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center overflow-hidden shadow-purple-glow"
+              className="relative w-80 h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center overflow-hidden shadow-purple-glow"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 40px rgba(167, 85, 240, 0.6)",
@@ -117,32 +117,32 @@ export default function Hero() {
             className="text-4xl md:text-5xl font-bold text-foreground"
             whileHover={{ x: 5 }}
           >
-            I&apos;m a Software Engineer.|
+            I&apos;m a SOFTWARE ENGINEER |
           </motion.h3>
           <motion.p
             className="text-lg text-foreground leading-relaxed max-w-2xl"
             variants={itemVariants}
           >
-            Currently, I&apos;m a Software Engineer at{" "}
+            Final-year Software Engineering student at Can Tho University with hands-on experience in real-world projects. Currently working at{" "}
             <motion.a
-              href="#"
+              href="https://www.teknix.vn/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary hover:text-accent transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Teknix Corporation
-            </motion.a>
-            .
+            </motion.a>.
           </motion.p>
           <div className="space-y-4 text-foreground leading-relaxed max-w-3xl">
             <motion.p variants={itemVariants}>
-              A self-taught UI/UX designer, functioning in the industry for 1+
-              years now.
+              Skilled in ReactJS, Next.js, NestJS, WordPress, and PostgreSQL, I focus on building scalable,
+              user-friendly web applications with modern technologies.
             </motion.p>
             <motion.p variants={itemVariants}>
-              I make meaningful and delightful digital products that create an
-              equilibrium <br />
-              between user needs and business goals.
+              I create meaningful digital products that balance user needs with technical excellence, 
+              continuously improving with best practices and cutting-edge tools.
             </motion.p>
           </div>
         </motion.div>

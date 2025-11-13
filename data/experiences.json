@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Developer Intern",
+    "company": "Teknix Corporation",
+    "period": "September 2025 - Present",
+    "description": "Outsourcing for international dental clinics. Build and maintain websites showcasing clinic services, dental teams, and appointment booking systems using WordPress and Next.js.",
+    "icon": "🦷",
+    "link": "https://www.teknix.vn/"
+  },
+  {
+    "id": 2,
+    "title": "Developer Intern",
+    "company": "Green Space Solution",
+    "period": "June 2025 - August 2025",
+    "description": "Contributed to AutoTMS project. Designed and optimized web application interface, integrated data for key modules, and improved code quality through reviews.",
+    "icon": "🚘",
+    "link": "https://www.autotms.vn/"
+  },
+  {
+    "id": 3,
+    "title": "IT Intern",
+    "company": "UTA Co., Ltd",
+    "period": "June 2024 - April 2025",
+    "description": "Developed AI pest diagnosis system with ~97% accuracy using PhoBERT. Optimized web applications and enhanced UI performance for PagoSolution and IECES projects.",
+    "icon": "🌱",
+    "link": "https://utasolution.com"
+  },
+  {
+    "id": 4,
+    "title": "AI & Front-End Developer",
+    "company": "PagoSolution (UTA Internal)",
+    "period": "July 2024 - April 2025",
+    "description": "Built AI pest diagnosis system with PhoBERT achieving ~97% accuracy. Developed and optimized UI rendering speed using ReactJS, NestJS, and GraphQL.",
+    "icon": "🤖",
+    "link": "https://pagosolution.com"
+  },
+  {
+    "id": 5,
+    "title": "Front-End Developer",
+    "company": "IECES Project (UTA Customer)",
+    "period": "October 2024 - November 2024",
+    "description": "Developed front-end interface based on Figma designs. Implemented responsive layouts enhancing cross-device compatibility using WordPress & Elementor.",
+    "icon": "💻",
+    "link": "https://ieces.edu.vn"
+  }
+]

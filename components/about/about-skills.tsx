@@ -2,15 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-
-const skills = [
-  { name: "React", level: 95, icon: "⚛️" },
-  { name: "TypeScript", level: 90, icon: "📘" },
-  { name: "Next.js", level: 92, icon: "▲" },
-  { name: "Node.js", level: 88, icon: "🟢" },
-  { name: "Database Design", level: 85, icon: "🗄️" },
-  { name: "UI/UX Design", level: 92, icon: "🎨" },
-]
+import Image from "next/image"
+import skills from "@/data/skills.json"
 
 export default function AboutSkills() {
   const { ref, isVisible } = useScrollReveal()
@@ -59,7 +52,7 @@ export default function AboutSkills() {
                   <div className="flex items-center justify-between">
                     <div>
                       <motion.h3 className="text-xl font-semibold text-foreground flex items-center gap-3" whileHover={{ x: 5 }}>
-                        <span className="text-2xl">{skill.icon}</span>
+                        <Image src={skill.icon} alt={skill.name} width={40} height={40} objectFit="cover" className="bg-white rounded-[5px]" />
                         {skill.name}
                       </motion.h3>
                     </div>

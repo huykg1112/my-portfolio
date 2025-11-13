@@ -2,36 +2,12 @@
 
 import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import experiences from "@/data/experiences.json"
 
 export default function WorkExperience() {
   const { ref, isVisible } = useScrollReveal()
 
-  const experiences = [
-    {
-      id: 1,
-      title: "CIB on the Mobile",
-      description: "Led a digital transformation...",
-      icon: "🚀",
-    },
-    {
-      id: 2,
-      title: "CIB on the Mobile",
-      description: "Led a digital transformation...",
-      icon: "🎨",
-    },
-    {
-      id: 3,
-      title: "CIB on the Mobile",
-      description: "Led a digital transformation...",
-      icon: "💻",
-    },
-    {
-      id: 4,
-      title: "CIB on the Mobile",
-      description: "Led a digital transformation...",
-      icon: "🔧",
-    },
-  ]
+  // experiences are loaded from data/experiences.json
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,7 +37,7 @@ export default function WorkExperience() {
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.6 }}
         >
-          Work Experience
+          My Projects
         </motion.h2>
 
         <motion.div
@@ -95,14 +71,16 @@ export default function WorkExperience() {
 
                 <motion.div className="relative space-y-4" initial={{ opacity: 0.8 }} whileHover={{ opacity: 1 }}>
                   <div className="flex items-start justify-between">
-                    <div>
+                    <div className="flex-1">
                       <motion.h3 className="text-2xl md:text-3xl font-semibold text-foreground" whileHover={{ x: 5 }}>
                         {exp.title}
                       </motion.h3>
-                      <p className="text-sm text-muted-foreground mt-2">{exp.description}</p>
+                      <p className="text-sm text-primary font-semibold mt-1">{exp.company}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{exp.period}</p>
+                      <p className="text-sm text-foreground mt-3 leading-relaxed">{exp.description}</p>
                     </div>
                     <motion.span
-                      className="text-3xl md:text-4xl"
+                      className="text-3xl md:text-4xl ml-4"
                       animate={{ rotate: 360, y: [0, -5, 0] }}
                       transition={{
                         rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
@@ -112,13 +90,16 @@ export default function WorkExperience() {
                       {exp.icon}
                     </motion.span>
                   </div>
-                  <motion.button
-                    className="text-sm uppercase tracking-widest text-primary font-semibold"
+                  <motion.a
+                    href={exp.link}
+                    target={exp.link !== "#" ? "_blank" : undefined}
+                    rel={exp.link !== "#" ? "noopener noreferrer" : undefined}
+                    className="text-sm uppercase tracking-widest text-primary font-semibold inline-block mt-4"
                     whileHover={{ scale: 1.1, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     LEARN MORE
-                  </motion.button>
+                  </motion.a>
                 </motion.div>
               </motion.div>
             </motion.div>

@@ -2,57 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-
-const experiments = [
-  {
-    id: 1,
-    title: "AI Chat Interface",
-    description: "Interactive chatbot with natural language processing and real-time responses",
-    tags: ["React", "OpenAI", "WebSocket"],
-    icon: "🤖",
-    status: "Active",
-  },
-  {
-    id: 2,
-    title: "3D Data Visualization",
-    description: "Three.js powered interactive data visualization dashboard",
-    tags: ["Three.js", "D3.js", "WebGL"],
-    icon: "📊",
-    status: "Active",
-  },
-  {
-    id: 3,
-    title: "Motion Design System",
-    description: "Component library with advanced motion and interaction patterns",
-    tags: ["Framer Motion", "Storybook", "TypeScript"],
-    icon: "✨",
-    status: "Active",
-  },
-  {
-    id: 4,
-    title: "Real-time Collaboration",
-    description: "WebRTC powered collaborative document editor with live cursors",
-    tags: ["WebRTC", "Operational Transform", "Node.js"],
-    icon: "🚀",
-    status: "Experimental",
-  },
-  {
-    id: 5,
-    title: "ML Model Playground",
-    description: "Interactive playground for testing machine learning models in browser",
-    tags: ["TensorFlow.js", "React", "Python"],
-    icon: "🧠",
-    status: "Experimental",
-  },
-  {
-    id: 6,
-    title: "Generative Art Tool",
-    description: "Browser-based tool for creating generative art with algorithms",
-    tags: ["Canvas API", "P5.js", "Algorithms"],
-    icon: "🎨",
-    status: "Active",
-  },
-]
+import experiments from "@/data/lab-experiments.json"
 
 export default function LabProjects() {
   const { ref, isVisible } = useScrollReveal()

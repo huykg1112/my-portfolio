@@ -2,21 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-
-const items = [
-  {
-    title: "Experiment",
-    description: "Test new technologies and innovative ideas in a safe environment",
-  },
-  {
-    title: "Learn",
-    description: "Continuous learning through hands-on experimentation and prototyping",
-  },
-  {
-    title: "Share",
-    description: "Open source contributions and knowledge sharing with the community",
-  },
-]
+import items from "@/data/lab-items.json"
 
 export default function LabCards() {
   const { ref, isVisible } = useScrollReveal()

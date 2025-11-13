@@ -16,8 +16,8 @@ export default function AboutHero() {
             About Me
           </motion.h1>
           <motion.p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            I&apos;m a passionate fullstack developer dedicated to creating meaningful digital experiences that bridge
-            design and engineering.
+            Final-year Software Engineering student at Can Tho University with hands-on experience in real-world projects 
+            as a Front-End and Full-Stack Developer. Building scalable, user-friendly web applications with modern technologies.
           </motion.p>
         </motion.div>
       </div>

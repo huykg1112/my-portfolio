@@ -1,37 +1,25 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { motion } from "framer-motion";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import projects from "@/data/featured-projects.json";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function FeaturedProjects() {
-  const { ref, isVisible } = useScrollReveal()
+  const { ref, isVisible } = useScrollReveal();
 
-  const projects = [
-    {
-      id: 1,
-      title: "Example Project",
-      description:
-        "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
-      badge: "🎵 🎵",
-      position: "top",
-    },
-    {
-      id: 2,
-      title: "Example Project",
-      description:
-        "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
-      badge: "🎵 🎵",
-      position: "bottom",
-    },
-  ]
+  // projects are imported from data/featured-projects.json
 
   return (
     <section ref={ref} className="py-20 md:py-28 px-6 md:px-8 lg:px-10">
-      <div className="max-w-7xl mx-auto space-y-16">
+      <div className="max-w-7xl mx-auto space-y-24">
         {projects.map((project, idx) => (
           <motion.div
             key={project.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${idx === 1 ? "lg:grid-flow-dense" : ""}`}
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              idx === 1 ? "lg:grid-flow-dense" : ""
+            }`}
             initial={{ opacity: 0, y: 40 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, delay: idx * 0.2 }}
@@ -46,23 +34,37 @@ export default function FeaturedProjects() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}
-                />
+                <Link href={project.link || "#"}>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100"
+                    transition={{ duration: 0.3 }}
+                  />{" "}
+                </Link>
                 <motion.div
                   className="text-center space-y-4 relative z-10"
                   initial={{ opacity: 0.7 }}
                   whileHover={{ opacity: 1 }}
                 >
                   <motion.div
-                    className="w-16 h-16 bg-border rounded flex items-center justify-center mx-auto"
+                    className="w-28 h-28 bg-border rounded flex items-center justify-center mx-auto"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    transition={{
+                      duration: 20,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "linear",
+                    }}
                   >
-                    <div className="text-2xl">📄</div>
+                    <Image
+                      src="https://res.cloudinary.com/dq8qq2zed/image/upload/v1762854609/logo-portfolio_asrih8.png"
+                      alt="Logo"
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                    />
                   </motion.div>
-                  <p className="text-muted-foreground text-sm">Project Preview</p>
+                  <p className="text-muted-foreground text-sm">
+                    Project Preview
+                  </p>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -85,9 +87,12 @@ export default function FeaturedProjects() {
                   animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: idx * 0.2 + 0.4 }}
                 >
-                  Featured Project
+                  {project.sub || "Featured Project"}
                 </motion.p>
-                <motion.h3 className="text-3xl md:text-4xl font-bold text-foreground" whileHover={{ x: 5 }}>
+                <motion.h3
+                  className="text-3xl md:text-4xl font-bold text-foreground"
+                  whileHover={{ x: 5 }}
+                >
                   {project.title}
                 </motion.h3>
               </div>
@@ -99,19 +104,25 @@ export default function FeaturedProjects() {
                   boxShadow: "0 0 40px rgba(167, 85, 240, 0.4)",
                 }}
               >
-                <p className="text-foreground leading-relaxed">{project.description}</p>
+                <p className="text-foreground leading-relaxed">
+                  {project.description}
+                </p>
               </motion.div>
-
               <motion.div
                 className="flex gap-2"
                 initial={{ opacity: 0, y: 10 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                animate={
+                  isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                }
                 transition={{ delay: idx * 0.2 + 0.5 }}
               >
                 <motion.span
                   className="text-2xl"
                   animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                  }}
                 >
                   {project.badge}
                 </motion.span>
@@ -121,5 +132,5 @@ export default function FeaturedProjects() {
         ))}
       </div>
     </section>
-  )
+  );
 }

@@ -2,24 +2,10 @@
 
 import { motion } from "framer-motion"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import techs from "@/data/techs.json"
 
 export default function TechStack() {
   const { ref, isVisible } = useScrollReveal()
-
-  const techs = [
-    { name: "Figma", icon: "🎨" },
-    { name: "Design", icon: "⚙️" },
-    { name: "Development", icon: "💻" },
-    { name: "Analytics", icon: "📊" },
-    { name: "Database", icon: "🗄️" },
-    { name: "Deployment", icon: "🚀" },
-    { name: "CI/CD", icon: "🔄" },
-    { name: "Testing", icon: "🧪" },
-    { name: "Monitoring", icon: "📈" },
-    { name: "Security", icon: "🔒" },
-    { name: "DevOps", icon: "🛠️" },
-    { name: "Cloud", icon: "☁️" },
-  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },

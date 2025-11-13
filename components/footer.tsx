@@ -27,14 +27,14 @@ export default function Footer() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#" title="GitHub" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center">
-            <span>G</span>
+           <a href="https://github.com/huykg1112" title="GitHub" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center hover:border-primary transition">
+            <span>🐱‍👤</span>
           </a>
-          <a href="#" title="Dribbble" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center">
-            <span>🎨</span>
+          <a href="https://www.facebook.com/tran.huy.113299/" target="_blank" rel="noopener noreferrer" title="Facebook" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center hover:border-primary transition">
+            <span>FB</span>
           </a>
-          <a href="#" title="Instagram" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center">
-            <span>📷</span>
+          <a href="tel:0334114244" title="Phone: 0334114244" className="w-9 h-9 rounded-lg border border-border flex items-center justify-center hover:border-primary transition">
+            <span>📱</span>
           </a>
         </div>
       </div>

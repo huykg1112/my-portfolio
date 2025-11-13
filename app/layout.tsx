@@ -13,9 +13,9 @@ import Head from 'next/head'
 // const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: 'My-Portfolio',
+  title: 'Trần Hoàng Huy',
   description: 'Created by Trần Hoàng Huy',
-  generator: 'Trân Hoàng Huy',
+  generator: 'Trần Hoàng Huy',
   // icons: {
   //   icon: [
   //     {

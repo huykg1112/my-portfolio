@@ -1,0 +1,14 @@
+[
+  { "name": "Figma", "icon": "🎨" },
+  { "name": "Design", "icon": "⚙️" },
+  { "name": "Development", "icon": "💻" },
+  { "name": "Analytics", "icon": "📊" },
+  { "name": "Database", "icon": "🗄️" },
+  { "name": "Deployment", "icon": "🚀" },
+  { "name": "CI/CD", "icon": "🔄" },
+  { "name": "Testing", "icon": "🧪" },
+  { "name": "Monitoring", "icon": "📈" },
+  { "name": "Security", "icon": "🔒" },
+  { "name": "DevOps", "icon": "🛠️" },
+  { "name": "Cloud", "icon": "☁️" }
+]

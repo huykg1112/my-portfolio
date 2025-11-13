@@ -46,12 +46,12 @@ export default function Contact() {
           animate={isVisible ? "visible" : "hidden"}
         >
           <motion.p className="text-foreground leading-relaxed" variants={itemVariants}>
-            I&apos;m currently looking to join a cross-functional team that values improving people&apos;s lives <br />
-            through accessible design, or have a project in mind? Let&apos;s connect.
+            I&apos;m looking for opportunities to join a cross-functional team that values innovation and quality. <br />
+            Have a project in mind or want to collaborate? Let&apos;s connect!
           </motion.p>
 
           <motion.a
-            href="mailto:ibrahimemon9030@gmail.com"
+            href="mailto:huyth.dev@gmail.com"
             className="text-primary text-lg font-semibold shadow-purple-glow inline-block"
             variants={itemVariants}
             whileHover={{ scale: 1.05, x: 5 }}
@@ -63,14 +63,16 @@ export default function Contact() {
           {/* Social Links */}
           <motion.div className="flex gap-6 pt-4" variants={itemVariants}>
             {[
-              { icon: "📷", label: "Instagram" },
-              { icon: "🎨", label: "Dribbble" },
-              { icon: "G", label: "GitHub" },
+              { icon: "🐱‍👤", label: "GitHub", href: "https://github.com/huykg1112"},
+              { icon: "FB", label: "Facebook", href: "https://www.facebook.com/tran.huy.113299/" },
+              { icon: "📱", label: "Phone", href: "tel:0334114244" },
             ].map((social) => (
               <motion.div key={social.label}>
                 <motion.div whileHover={{ scale: 1.15 }} whileTap={{ scale: 0.9 }}>
                   <Link
-                    href="#"
+                    href={social.href}
+                    target={social.label === "GitHub" ? "_blank" : undefined}
+                    rel={social.label === "GitHub" ? "noopener noreferrer" : undefined}
                     className="w-10 h-10 rounded-lg border border-border shadow-purple-glow flex items-center justify-center transition font-semibold text-sm"
                     title={social.label}
                   >
