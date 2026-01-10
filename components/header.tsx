@@ -73,7 +73,7 @@ export default function Header() {
         {/* CV Download CTA (hidden on mobile) */}
         <motion.div className="hidden sm:flex items-center">
           <motion.a
-            href="/TranHoangHuy-SoftwareEngineer-VC.pdf"
+            href="/TranHoangHuy-SoftwareEngineer.pdf"
             download
             className="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-background font-semibold hover:brightness-95 transition"
             whileHover={{ scale: 1.03 }}
