@@ -13,12 +13,12 @@ import Head from 'next/head'
 // const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: 'Trần Hoàng Huy',
-  description: 'Created by Trần Hoàng Huy',
+  title: 'Trần Hoàng Huy - Software Engineer',
+  description: 'This is my personal portfolio website.',
   generator: 'Trần Hoàng Huy',
   openGraph: {  
-    title: 'Trần Hoàng Huy',
-    description: 'Created by Trần Hoàng Huy',
+    title: 'Trần Hoàng Huy - Software Engineer',
+    description: 'This is my personal portfolio website.',
     type: 'website',
     images: [
       {
