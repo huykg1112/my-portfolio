@@ -14,17 +14,17 @@ import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'Trần Hoàng Huy - Software Engineer',
-  description: 'This is my personal portfolio website.',
+  description: 'Software Engineer specializing in full-stack development. Explore my portfolio, projects, and technical expertise.',
   generator: 'Trần Hoàng Huy',
   openGraph: {  
     title: 'Trần Hoàng Huy - Software Engineer',
-    description: 'This is my personal portfolio website.',
+    description: 'Software Engineer specializing in full-stack development. Explore my portfolio, projects, and technical expertise.',
     type: 'website',
     images: [
       {
         url: 'https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png',
-        width: 300,
-        height: 400,
+        width: 1200,
+        height: 630,
         
         alt: 'Trần Hoàng Huy',
       },
