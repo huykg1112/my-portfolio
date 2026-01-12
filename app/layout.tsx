@@ -16,23 +16,28 @@ export const metadata: Metadata = {
   title: 'Trần Hoàng Huy',
   description: 'Created by Trần Hoàng Huy',
   generator: 'Trần Hoàng Huy',
-  // icons: {
-  //   icon: [
-  //     {
-  //       url: '/icon-light-32x32.png',
-  //       media: '(prefers-color-scheme: light)',
-  //     },
-  //     {
-  //       url: '/icon-dark-32x32.png',
-  //       media: '(prefers-color-scheme: dark)',
-  //     },
-  //     {
-  //       url: '/icon.svg',
-  //       type: 'image/svg+xml',
-  //     },
-  //   ],
-  //   apple: '/apple-icon.png',
-  // },
+  openGraph: {  
+    title: 'Trần Hoàng Huy',
+    description: 'Created by Trần Hoàng Huy',
+    type: 'website',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png',
+        width: 300,
+        height: 400,
+        
+        alt: 'Trần Hoàng Huy',
+      },
+    ],
+  },
+  icons: {
+    icon: [
+      {
+        url: 'https://res.cloudinary.com/dq8qq2zed/image/upload/v1762854609/logo-portfolio_asrih8.png',
+        media: '(prefers-color-scheme: light)',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
