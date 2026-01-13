@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import '../styles/globals.css'
 import Footer from '@/components/footer'
 import Head from 'next/head'
 
