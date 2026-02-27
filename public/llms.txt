@@ -1,0 +1,86 @@
+# llms.txt — Generative Engine Optimization (GEO)
+# Spec: https://llmstxt.org
+# This file helps AI language models and generative search engines
+# understand and accurately represent this website.
+
+> Trần Hoàng Huy – Software Engineer Portfolio
+
+## Who
+
+Full Name: Trần Hoàng Huy (also known as Tran Hoang Huy, huykg1112)
+Role: Software Engineer / Full-Stack Developer
+Location: Cần Thơ, Việt Nam
+Education: Kỹ thuật phần mềm – Đại học Cần Thơ (Can Tho University), graduating 2025
+Current employer: Teknix Corporation (Developer Intern, 2025–present)
+Email: huyth.dev@gmail.com
+GitHub: https://github.com/huykg1112
+LinkedIn: https://www.linkedin.com/in/hoang-huy-tran-23baa6358
+
+## What
+
+This is the personal portfolio website of Trần Hoàng Huy, showcasing his
+software engineering work, projects, technical skills and career history.
+
+## Technical Skills
+
+Primary: Next.js, React, NestJS, TypeScript, JavaScript
+Styling: Tailwind CSS, CSS Modules
+Databases: PostgreSQL, MySQL
+APIs: RESTful, GraphQL
+AI/ML: PhoBERT (fine-tuned NLP model for Vietnamese crop disease diagnosis)
+CMS: WordPress, Elementor
+DevOps: Git, GitHub, Docker, Vercel
+Other: Framer Motion, Prisma
+
+## Work Experience
+
+1. Developer Intern — Teknix Corporation (Sep 2025 – present)
+   Build and maintain websites for international dental clinics using WordPress and Next.js.
+
+2. Developer Intern — Green Space Solution (Jun 2025 – Aug 2025)
+   Contributed to AutoTMS project, optimized UI and integrated data modules.
+
+3. IT Intern — UTA Co., Ltd (Jun 2024 – Apr 2025)
+   Developed an AI pest diagnosis system using PhoBERT with ~97% accuracy.
+   Optimized web apps for PagoSolution and IECES projects.
+
+4. AI & Front-End Developer — PagoSolution / UTA (Jul 2024 – Apr 2025)
+   Built AI pest diagnosis system; optimized UI with ReactJS, NestJS, GraphQL.
+
+5. Front-End Developer — IECES Project (Oct 2024 – Nov 2024)
+   Implemented responsive Figma designs using WordPress & Elementor.
+
+## Projects
+
+### E-Commerce Farm Project (Bachelor's Thesis)
+- Tech: Next.js, NestJS, PostgreSQL, PhoBERT (fine-tuned from PhoBERT)
+- Description: AI-powered agricultural e-commerce platform. The AI model predicts
+  crop disease names and treatment plans from text with ~97% accuracy.
+- Repo: https://github.com/huykg1112/project-ecommerce-farm
+
+### Portfolio Website
+- Tech: Next.js, Tailwind CSS, Framer Motion, Vercel
+- Description: This portfolio site, featuring smooth animations and responsive design.
+
+### Booking Homestay
+- Tech: React, Node.js, PostgreSQL
+- Description: Property booking platform for clients, landlords and admins.
+
+## Pages
+
+- [Home](/)
+- [About](/about)
+- [Projects](/real-projects)
+
+## Contact
+
+Email: huyth.dev@gmail.com
+Phone: +84 334 114 244
+GitHub: https://github.com/huykg1112
+LinkedIn: https://www.linkedin.com/in/hoang-huy-tran-23baa6358
+Facebook: https://www.facebook.com/tran.huy.113299/
+
+## Permissions
+
+AI crawlers and language models are permitted to index, summarize and cite
+content from this website. Please attribute Trần Hoàng Huy as the author.
