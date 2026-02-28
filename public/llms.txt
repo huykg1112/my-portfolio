@@ -3,98 +3,101 @@
 # This file helps AI language models and generative search engines
 # understand and accurately represent this website.
 
-> Trần Hoàng Huy – Software Engineer Portfolio
+> Trần Hoàng Huy – Frontend Developer (React / Next.js) Portfolio
 
 ## Who
 
 Full Name: Trần Hoàng Huy (also known as Tran Hoang Huy, huykg1112)
-Role: Software Engineer / Full-Stack Developer
-Location: Cần Thơ, Việt Nam
-Education: Kỹ thuật phần mềm – Đại học Cần Thơ (Can Tho University), graduating 2025
-Current employer: Teknix Corporation (Developer Intern, 2025–present)
+Role: Frontend Developer (React / Next.js)
+Date of Birth: 11/12/2002
+Gender: Male
+Location: Ninh Kiều, Thành phố Cần Thơ, Việt Nam
+Education: Kỹ thuật Phần mềm – Đại học Cần Thơ (Can Tho University)
+           Aug 2022 – Dec 2025 · GPA 3.58 / 4.0
+Current employer: TekNix Technology Corporation (Frontend Intern, Sep 2025 – present)
+Personal website: https://thhuydev.id.vn
 Email: huyth.dev@gmail.com
+Phone: +84 334 114 244
 GitHub: https://github.com/huykg1112
 LinkedIn: https://www.linkedin.com/in/hoang-huy-tran-23baa6358
+Facebook: https://www.facebook.com/tran.huy.113299/
 
 ## What
 
 This is the personal portfolio website of Trần Hoàng Huy, showcasing his
-software engineering work, projects, technical skills and career history.
+Frontend development work, projects, technical skills and career history.
 
 ## Technical Skills
 
-Primary: Next.js, React, NestJS, TypeScript, JavaScript
-Styling: Tailwind CSS, CSS Modules
-Databases: PostgreSQL, MySQL
-APIs: RESTful, GraphQL
-AI/ML: PhoBERT (fine-tuned NLP model for Vietnamese crop disease diagnosis)
-CMS: WordPress, Elementor
-DevOps: Git, GitHub, Docker, Vercel
-Other: Framer Motion, Prisma
+Frontend:     ReactJS, Next.js, TypeScript, JavaScript, PHP
+Styling:      Tailwind CSS, Shadcn/UI, MUI (Material UI), Hero UI, Ant Design, CSS Modules
+State:        Redux Toolkit, Jotai, Context API
+Animation:    Framer Motion
+Backend:      NestJS, RESTful APIs, GraphQL, JWT Authentication, OAuth 2.0
+Databases:    PostgreSQL, TypeORM, Prisma ORM
+CMS:          WordPress, Elementor, Strapi
+Mobile:       Flutter
+DevOps:       Git, GitHub, Vercel
+AI Tools:     ChatGPT, Gemini, v0, Lovable
 
 ## Work Experience
 
-1. Front-End Developer — DevoseCare Dashboard · Teknix Corporation (Feb 2026)
-   Built an internal management dashboard for DevoseCare center:
-   Kanban appointment board with drag-and-drop (dnd-kit), customer list management,
-   CMS module for App content control, role-based staff permissions, login/logout.
-   Stack: ReactJS, Vite, Tailwind CSS, Shadcn UI, Zustand, dnd-kit, Axios, React Hook Form, Zod.
-   Demo: https://devoscare-dashboard.blocktrend.xyz
+1. Frontend Intern — TekNix Technology Corporation (Sep 2025 – present)
+   Build and optimise websites for international dental clinic clients.
+   Stack: ReactJS, Next.js, WordPress, Tailwind CSS, REST API, Framer, SEO.
 
-2. Developer Intern — Teknix Corporation (Sep 2025 – present)
-   Build and maintain websites for international dental clinics using WordPress and Next.js.
+2. Fullstack Intern — Green Space Solution JSC (Jun 2025 – Aug 2025)
+   Contributed to AutoTMS (transport management system): designed UI,
+   integrated data modules, and implemented backend features.
+   Stack: Next.js, Hero UI, REST API, NestJS, Strapi, Prisma ORM, GraphQL.
 
-3. Developer Intern — Green Space Solution (Jun 2025 – Aug 2025)
-   Contributed to AutoTMS project, optimized UI and integrated data modules.
-
-4. IT Intern — UTA Co., Ltd (Jun 2024 – Apr 2025)
-   Developed an AI pest diagnosis system using PhoBERT with ~97% accuracy.
-   Optimized web apps for PagoSolution and IECES projects.
-
-5. AI & Front-End Developer — PagoSolution / UTA (Jul 2024 – Apr 2025)
-   Built AI pest diagnosis system; optimized UI with ReactJS, NestJS, GraphQL.
-
-6. Front-End Developer — IECES Project (Oct 2024 – Nov 2024)
-   Implemented responsive Figma designs using WordPress & Elementor.
+3. IT Intern — UTA Co., Ltd (Jun 2024 – Apr 2025)
+   Developed an AI-based pest diagnosis feature using PhoBERT (~97% accuracy).
+   Optimised web apps for PagoSolution (ReactJS, NestJS, REST API, Tailwind CSS).
+   Implemented responsive Figma designs for IECES project using WordPress & Elementor.
+   Stack: ReactJS, NestJS, REST API, PhoBERT, Tailwind CSS, WordPress.
 
 ## Projects
 
 ### DevoseCare Dashboard
-- Company: Teknix Corporation
+- Company: TekNix Technology Corporation
 - Period: Feb 02 – Feb 27, 2026
-- Tech: ReactJS, Vite, Tailwind CSS, Shadcn UI, Zustand, dnd-kit, Axios, React Hook Form, Zod
+- Role: Frontend Developer
+- Tech: ReactJS, Vite, Tailwind CSS, Shadcn/UI, Zustand, dnd-kit, Axios, React Hook Form, Zod
 - Description: Internal management dashboard for DevoseCare medical center.
-  Features: Kanban appointment board with drag-and-drop, customer list management,
-  CMS module for Client App content, role-based staff permissions, login/logout.
+  Features: Full appointment lifecycle management with Kanban drag-and-drop (dnd-kit),
+  customer list management, CMS module for Client App content,
+  role-based staff permissions, login/logout.
 - Demo: https://devoscare-dashboard.blocktrend.xyz
 
-### E-Commerce Farm Project (Bachelor's Thesis)
-- Tech: Next.js, NestJS, PostgreSQL, PhoBERT (fine-tuned from PhoBERT)
+### E-commerce Farm Platform (Bachelor's Thesis)
+- Period: Apr 2025 – Aug 2025
+- Role: Fullstack Developer
+- Tech: Next.js, NestJS, PostgreSQL, TypeORM, PhoBERT (fine-tuned NLP model)
 - Description: AI-powered agricultural e-commerce platform. The AI model predicts
-  crop disease names and treatment plans from text with ~97% accuracy.
+  crop disease names and treatment plans from Vietnamese text with ~97% accuracy.
 - Repo: https://github.com/huykg1112/project-ecommerce-farm
 
-### Portfolio Website
-- Tech: Next.js, Tailwind CSS, Framer Motion, Vercel
-- Description: This portfolio site, featuring smooth animations and responsive design.
+### Homestay Booking Web App
+- Period: Apr 2024 – Aug 2024
+- Role: Frontend Developer (2-member team)
+- Tech: ReactJS, NestJS, PostgreSQL, REST API, Tailwind CSS
+- Description: Full-stack property booking platform with search, booking flow
+  and management features for clients, landlords and admins.
+- Repo: https://github.com/tainn03/Homestay-Booking-Client
 
-### Booking Homestay
-- Tech: React, Node.js, PostgreSQL
-- Description: Property booking platform for clients, landlords and admins.
+## Education
+
+Institution: Trường Đại học Cần Thơ (Can Tho University)
+Major: Kỹ thuật Phần mềm (Software Engineering)
+Period: August 2022 – December 2025
+GPA: 3.58 / 4.0
 
 ## Pages
 
 - [Home](/)
 - [About](/about)
 - [Projects](/real-projects)
-
-## Contact
-
-Email: huyth.dev@gmail.com
-Phone: +84 334 114 244
-GitHub: https://github.com/huykg1112
-LinkedIn: https://www.linkedin.com/in/hoang-huy-tran-23baa6358
-Facebook: https://www.facebook.com/tran.huy.113299/
 
 ## Permissions
 

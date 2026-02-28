@@ -18,16 +18,16 @@ export default function FeaturedProjects() {
           <motion.div
             key={project.id}
             className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-              idx === 1 ? "lg:grid-flow-dense" : ""
+              idx % 2 === 1 ? "lg:grid-flow-dense" : ""
             }`}
             initial={{ opacity: 0, y: 40 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, delay: idx * 0.2 }}
           >
             {/* Project Card / Mockup */}
-            <motion.div className={idx === 1 ? "lg:col-start-2" : ""}>
+            <motion.div className={idx % 2 === 1 ? "lg:col-start-2" : ""}>
               <motion.div
-                className="relative bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl p-6 backdrop-blur-sm border border-border aspect-video flex items-center justify-center shadow-purple-glow overflow-hidden group cursor-pointer"
+                className="relative bg-linear-to-br from-primary/10 to-accent/10 rounded-xl p-6 backdrop-blur-sm border border-border aspect-video flex items-center justify-center shadow-purple-glow overflow-hidden group cursor-pointer"
                 whileHover={{
                   scale: 1.03,
                   boxShadow: "0 0 50px rgba(167, 85, 240, 0.5)",
@@ -36,7 +36,7 @@ export default function FeaturedProjects() {
               >
                 <Link href={project.link || "#"}>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100"
+                    className="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100"
                     transition={{ duration: 0.3 }}
                   />{" "}
                 </Link>
@@ -71,9 +71,9 @@ export default function FeaturedProjects() {
 
             {/* Project Info */}
             <motion.div
-              className={`space-y-6 ${idx === 1 ? "lg:col-start-1" : ""}`}
+              className={`space-y-6 ${idx % 2 === 1 ? "lg:col-start-1" : ""}`}
               variants={{
-                hidden: { opacity: 0, x: idx === 1 ? 40 : -40 },
+                hidden: { opacity: 0, x: idx % 2 === 1 ? 40 : -40 },
                 visible: { opacity: 1, x: 0 },
               }}
               initial="hidden"

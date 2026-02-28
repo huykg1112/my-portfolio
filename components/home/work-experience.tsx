@@ -37,7 +37,7 @@ export default function WorkExperience() {
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.6 }}
         >
-          My Projects
+          Work Experience
         </motion.h2>
 
         <motion.div
@@ -49,7 +49,7 @@ export default function WorkExperience() {
           {experiences.map((exp) => (
             <motion.div key={exp.id} variants={cardVariants}>
               <motion.div
-                className="group relative bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/30 rounded-lg p-8 overflow-hidden cursor-pointer h-full shadow-purple-glow"
+                className="group relative bg-linear-to-br from-primary/10 to-accent/10 border border-primary/30 rounded-lg p-8 overflow-hidden cursor-pointer h-full shadow-purple-glow"
                 whileHover={{
                   scale: 1.05,
                   border: "1px solid rgb(167, 85, 240)",
@@ -58,7 +58,7 @@ export default function WorkExperience() {
                 transition={{ duration: 0.3 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity"
                   animate={
                     isVisible
                       ? {

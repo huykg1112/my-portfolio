@@ -3,37 +3,30 @@
     "name": "DevoseCare Dashboard",
     "period": "02/2026",
     "role": "Front-End Developer",
-    "company": "Teknix Corporation",
+    "company": "TekNix Technology Corporation",
     "tech": ["ReactJS", "Vite", "Tailwind CSS", "Shadcn UI", "Zustand", "dnd-kit", "Axios", "React Hook Form", "Zod"],
-    "description": "Internal management dashboard for DevoseCare center (Feb 02 – Feb 27, 2026). Responsible for: project & build configuration, role-based staff permissions, login/logout flow, Kanban appointment board with drag-and-drop (dnd-kit), customer list management, CMS module for controlling content displayed on the Client App, and overall UI/UX optimization.",
-    "impact": "Delivered a full internal operations tool in under 4 weeks, enabling staff to manage appointments, customers and app content from a single interface",
+    "description": "Internal management dashboard for DevoseCare medical center (Feb 2026). Configured the project & build pipeline, implemented role-based staff permissions, login/logout flow, Kanban appointment board with drag-and-drop (dnd-kit), customer list management, CMS module for App content control, and UI/UX optimization.",
+    "impact": "Delivered a full internal operations tool in under 4 weeks, enabling staff to manage the full appointment lifecycle, customers and app content from a single interface",
     "link": "https://devoscare-dashboard.blocktrend.xyz"
   },
   {
-    "name": "E-Commerce Platform (E-Shop)",
-    "period": "2023 – 2024",
-    "role": "Frontend Engineer",
-    "tech": ["Next.js", "TypeScript", "TailwindCSS", "Vercel"],
-    "description": "Contributed to the storefront UI, optimized the cart and checkout flows, and improved page performance and UX to increase conversions.",
-    "impact": "Reduced page load time by 40% and increased checkout conversion by 12%",
-    "link": "#"
+    "name": "E-commerce Farm Platform",
+    "period": "04/2025 – 08/2025",
+    "role": "FullStack Developer",
+    "company": "Can Tho University — Bachelor's Thesis",
+    "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Redux Toolkit", "NestJS", "PostgreSQL", "TypeORM", "JWT", "OAuth 2.0", "Flutter"],
+    "description": "Full-stack agricultural e-commerce platform. Developed responsive web UI with Next.js & Shadcn/UI, state management with Redux Toolkit, REST API integration with JWT auth and role-based access. Built cross-platform mobile app with Flutter (Clean Architecture). Backend: NestJS, PostgreSQL, TypeORM, OAuth 2.0 Google.",
+    "impact": "Scalable full-stack system covering web + mobile with AI-powered crop disease diagnosis achieving ~97% accuracy",
+    "link": "https://github.com/huykg1112/project-ecommerce-farm"
   },
   {
-    "name": "Internal Admin Dashboard (AdminDash)",
-    "period": "2022",
-    "role": "Fullstack Developer",
-    "tech": ["React", "Node.js", "Postgres", "Docker"],
-    "description": "Built data management and reporting features including authentication and role-based access, enabling more reliable operations for the team.",
-    "impact": "Saved ~20 hours/week for the operations team through automated reporting",
-    "link": "#"
-  },
-  {
-    "name": "Booking App (Bookly Mobile Web)",
-    "period": "2021 – 2022",
-    "role": "Frontend Lead",
-    "tech": ["React", "PWA", "GraphQL"],
-    "description": "Designed and shipped the mobile web experience for bookings, optimized for slow networks and basic offline support.",
-    "impact": "Increased mobile bookings by 2.3x within the first 6 months after launch",
-    "link": "#"
+    "name": "Homestay Booking Web Application",
+    "period": "04/2024 – 08/2024",
+    "role": "Frontend Developer",
+    "company": "Group Project — 2 Members",
+    "tech": ["ReactJS", "Tailwind CSS", "MUI", "REST API", "PostgreSQL"],
+    "description": "Full-featured homestay booking platform with search, filter and booking flows. Implemented real-time chat and booking status updates. Consumed backend APIs to display homestay listings, user info and booking details. Responsive UI optimized across all devices.",
+    "impact": "Delivered a multi-role booking system (Client, Landlord, Admin) with real-time features in a 2-person team",
+    "link": "https://github.com/tainn03/Homestay-Booking-Client"
   }
 ]

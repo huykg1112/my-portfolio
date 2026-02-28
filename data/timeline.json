@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "year": "2021",
-    "title": "Started Software Engineering",
-    "description": "Enrolled in Can Tho University, beginning my journey in web development"
+    "year": "2022",
+    "title": "Enrolled in Can Tho University",
+    "description": "Started Software Engineering at Đại học Cần Thơ, beginning a deep dive into web development and software architecture"
   },
   {
     "id": 2,
     "year": "2024",
     "title": "IT Intern at UTA Co., Ltd",
-    "description": "Built AI pest diagnosis system and optimized web applications"
+    "description": "Built AI pest diagnosis system (PhoBERT, ~97% accuracy), developed frontend for PagoSolution and IECES projects using ReactJS and NestJS"
   },
   {
     "id": 3,
     "year": "2024",
-    "title": "Group Project Success",
-    "description": "Developed Booking Homestay platform with real-time chat features"
+    "title": "Homestay Booking Project",
+    "description": "Built a full-stack booking platform with ReactJS, MUI, real-time chat and booking status updates as a 2-member group project"
   },
   {
     "id": 4,
     "year": "2025",
-    "title": "Developer Intern at Green Space",
-    "description": "Contributed to AutoTMS project, focusing on UI/UX optimization"
+    "title": "E-commerce Farm Platform — Bachelor's Thesis",
+    "description": "Developed full-stack agricultural e-commerce platform with Next.js, NestJS, Redux Toolkit, Flutter mobile app and AI-powered crop disease diagnosis"
   },
   {
     "id": 5,
     "year": "2025",
-    "title": "Developer Intern at Teknix Corporation",
-    "description": "Building and maintaining websites for international dental clinics"
+    "title": "Graduated & Multiple Internships",
+    "description": "Graduated with GPA 3.58/4.0 (Dec 2025). Completed internships at Green Space Solution (Fullstack, AutoTMS) and TekNix Technology (Frontend, dental clinic websites)"
   },
   {
     "id": 6,
     "year": "2026",
-    "title": "DevoseCare Dashboard — Teknix Corporation",
-    "description": "Built a full-featured internal management dashboard for DevoseCare center: Kanban appointment board with drag-and-drop, customer list management, CMS for App content, role-based staff permissions, and login/logout. Stack: ReactJS, Vite, Tailwind, Shadcn, Zustand, dnd-kit."
+    "title": "DevoseCare Dashboard — TekNix",
+    "description": "Built a full-featured internal dashboard for DevoseCare center: Kanban appointment board (dnd-kit), customer management, CMS module, role-based permissions. Stack: ReactJS, Vite, Shadcn, Zustand."
   }
 ]

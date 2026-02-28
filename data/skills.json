@@ -1,12 +1,12 @@
 [
-  { "name": "ReactJS", "level": 85, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/React-icon_aotcdf.png" },
+  { "name": "ReactJS", "level": 92, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/React-icon_aotcdf.png" },
   { "name": "Next.js", "level": 90, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912714/nextjs_icon_myecuu.png" },
-  { "name": "Wordpress", "level": 85, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912716/wordpress-icon_ewbqi5.png" },
+  { "name": "TypeScript", "level": 88, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/Typescript_icon_mirpqm.png" },
   { "name": "Tailwind CSS", "level": 95, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762914096/tailwind_icon_dunczr.svg" },
-  { "name": "TypeScript", "level": 90, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/Typescript_icon_mirpqm.png" },
-  { "name": "NestJS", "level": 80, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762913912/NestJS_icon_awrwgu.png" },
-  { "name": "PostgreSQL", "level": 80, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/Postgresql_icon_drdedp.png" },
-  { "name": "Git & GitHub", "level": 95, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/github_icon_o8h8k9.png" },
-  { "name": "GraphQL", "level": 80, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/GraphQL_icon_sntg2p.png" },
-  { "name": "RESTful APIs", "level": 80, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/rest-api-icon_lupkys.png" }
+  { "name": "WordPress", "level": 82, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912716/wordpress-icon_ewbqi5.png" },
+  { "name": "NestJS", "level": 78, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762913912/NestJS_icon_awrwgu.png" },
+  { "name": "PostgreSQL", "level": 78, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/Postgresql_icon_drdedp.png" },
+  { "name": "GraphQL", "level": 75, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/GraphQL_icon_sntg2p.png" },
+  { "name": "RESTful APIs", "level": 88, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/rest-api-icon_lupkys.png" },
+  { "name": "Git & GitHub", "level": 92, "icon": "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762912715/github_icon_o8h8k9.png" }
 ]
