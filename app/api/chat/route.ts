@@ -1,8 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { NextRequest } from 'next/server'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-
 const SYSTEM_PROMPT = `
 Bạn là trợ lý AI của Trần Hoàng Huy trên trang portfolio cá nhân của anh ấy.
 Nhiệm vụ của bạn là trả lời các câu hỏi về Huy một cách thân thiện, chính xác và ngắn gọn.
@@ -94,6 +92,8 @@ export interface ChatMessage {
 }
 
 export async function POST(req: NextRequest) {
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
+
   try {
     const { messages }: { messages: ChatMessage[] } = await req.json()
 
