@@ -1,29 +1,65 @@
 [
   {
     "id": 1,
-    "title": "Ecommerece Farm Project",
+    "title": "DevoseCare Dashboard",
+    "sub": "TEKNIX CORPORATION — INTERNAL PROJECT",
+    "description": "Internal management dashboard for DevoseCare medical center (Feb 2026). Built with ReactJS, Vite, Tailwind CSS, Shadcn UI, Zustand and dnd-kit. Features: Kanban appointment board with drag-and-drop, full appointment lifecycle management, customer list management, CMS module for Client App content control, role-based staff permissions, and login/logout flow.",
+    "badge": "🏥 📋",
+    "position": "button",
+    "link": "https://devoscare-dashboard.blocktrend.xyz"
+  },
+    {
+    "id": 7,
+    "title": "Patient Honey – Dental Clinic Websites",
+    "sub": "TEKNIX CORPORATION — FRONTEND INTERN",
+    "description": "Maintained and developed 60+ websites for international dental clinic clients under the Patient Honey platform (September 2025 – March 2026). Responsibilities include building new clinic landing pages, optimising performance and SEO, and managing CMS-driven content. Stack: Next.js, TanaCMS, WordPress, Framer.",
+    "badge": "🦷 🌐",
+    "position": "top",
+    "link": "#"
+  },
+   {
+    "id": 2,
+    "title": "AutoTMS – Transport Management System",
+    "sub": "GREEN SPACE SOLUTION JSC — FULLSTACK INTERN",
+    "description": "Web-based transport management system built during internship at Green Space Solution (June–August 2025). Designed and implemented UI components, integrated data modules, and developed backend features for fleet and route management. Stack: Next.js, Hero UI, REST API, NestJS, Strapi, Prisma ORM, GraphQL.",
+    "badge": "🚗 🗺️",
+    "position": "button",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "Pago Dashboard",
+    "sub": "UTA CO., LTD — IT INTERN",
+    "description": "Internal management dashboard for PagoSolution built during internship at UTA Co., Ltd (July 2024–April 2025). Optimised UI/UX, integrated RESTful APIs, and implemented an AI-based pest diagnosis feature using a fine-tuned PhoBERT model achieving ~97% accuracy. Stack: ReactJS, NestJS, REST API, Tailwind CSS.",
+    "badge": "📊 🤖",
+    "position": "top",
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "title": "Ecommerce Farm Project",
     "sub": "MY BACHELOR'S THESIS",
     "description": "The system is built on a modern Client-Server model. The frontend is developed using Next.js for optimized speed and responsiveness, while the backend uses NestJS to manage APIs and data logic. PostgreSQL is used for data storage. The AI model is based on PhoBeat (fine-tuned from PhoBERT), trained on a curated dataset of over 350 crop diseases. The model predicts disease names and treatment plans from textual descriptions.",
     "badge": "🌾🚜",
-    "position": "top",
+    "position": "button",
     "link": "https://github.com/huykg1112/project-ecommerce-farm"
   },
   {
-    "id": 2,
+    "id": 5,
     "title": "My Portfolio Website",
     "sub": "MY Project",
     "description": "This portfolio website is built using Next.js , Tailwind CSS and deployed on Vercel, showcasing my projects, skills, and experience. It features smooth animations with Framer Motion and a responsive design to ensure optimal viewing on all devices.",
     "badge": "💼 💻",
-    "position": "button",
+    "position": "top",
     "link": "https://github.com/tainn03/Homestay-Booking-Client"
   },
   {
-    "id": 3,
+    "id": 6,
     "title": "Booking Homestay Simple Project",
     "sub": "GROUP PROJECT: 2 MEMBERS",
     "description": "The Booking Homestay project is a web application for searching and booking homestays, featuring various amenities. Three actors of this project include Client, Landlord and Admin.",
     "badge": "🏡 🛏",
-    "position": "top",
+    "position": "button",
     "link": "#"
   }
 ]

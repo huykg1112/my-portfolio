@@ -1,47 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Developer Intern",
-    "company": "Teknix Corporation",
-    "period": "September 2025 - Present",
-    "description": "Outsourcing for international dental clinics. Build and maintain websites showcasing clinic services, dental teams, and appointment booking systems using WordPress and Next.js.",
+    "title": "Frontend Intern",
+    "company": "TekNix Technology Corporation",
+    "period": "September 2025 – Present",
+    "description": "Developed and maintained responsive websites for ~60 international dental clinics using ReactJS, Next.js and WordPress. Built user-friendly interfaces for clinic services, dental team showcases and online appointment booking. Optimized responsive layouts, page performance and navigation flows across devices. Integrated frontend with RESTful APIs and collaborated with backend systems for data handling and authentication. Contributed to internal projects with Framer, creating interactive UI components and rapid prototypes.",
+    "tech": ["ReactJS", "Next.js", "WordPress", "Tailwind CSS", "REST API", "Framer", "SEO"],
     "icon": "🦷",
     "link": "https://www.teknix.vn/"
   },
   {
     "id": 2,
-    "title": "Developer Intern",
-    "company": "Green Space Solution",
-    "period": "June 2025 - August 2025",
-    "description": "Contributed to AutoTMS project. Designed and optimized web application interface, integrated data for key modules, and improved code quality through reviews.",
-    "icon": "🚘",
+    "title": "Fullstack Intern",
+    "company": "Green Space Solution JSC",
+    "period": "June 2025 – August 2025",
+    "description": "Designed and optimized the frontend for AutoTMS (Transport Management System), focusing on performance and scalability. Implemented UI features for Group Management, Vehicle Management and Vehicle Maintenance modules. Integrated frontend components with backend services built on NestJS, Strapi, Prisma ORM and GraphQL, ensuring accurate and consistent data rendering. Collaborated on code reviews to improve code quality and team development standards.",
+    "tech": ["Next.js", "Hero UI", "REST API", "NestJS", "Strapi", "Prisma ORM", "GraphQL"],
+    "icon": "🚗",
     "link": "https://www.autotms.vn/"
   },
   {
     "id": 3,
     "title": "IT Intern",
     "company": "UTA Co., Ltd",
-    "period": "June 2024 - April 2025",
-    "description": "Developed AI pest diagnosis system with ~97% accuracy using PhoBERT. Optimized web applications and enhanced UI performance for PagoSolution and IECES projects.",
+    "period": "June 2024 – April 2025",
+    "description": "Developed and optimized frontend interfaces for internal web applications using ReactJS and modern UI practices. Built the frontend for an AI-based pest diagnosis system (PagoSolution), integrating model results into the user interface. Improved UI performance and responsiveness, reducing load time and enhancing user interaction. Designed and implemented a responsive UI for the IECES project, ensuring cross-device compatibility. Collaborated with NestJS backend services for API consumption and application data handling.",
+    "tech": ["ReactJS", "NestJS", "REST API", "PhoBERT", "Tailwind CSS", "WordPress"],
     "icon": "🌱",
     "link": "https://utasolution.com"
-  },
-  {
-    "id": 4,
-    "title": "AI & Front-End Developer",
-    "company": "PagoSolution (UTA Internal)",
-    "period": "July 2024 - April 2025",
-    "description": "Built AI pest diagnosis system with PhoBERT achieving ~97% accuracy. Developed and optimized UI rendering speed using ReactJS, NestJS, and GraphQL.",
-    "icon": "🤖",
-    "link": "https://pagosolution.com"
-  },
-  {
-    "id": 5,
-    "title": "Front-End Developer",
-    "company": "IECES Project (UTA Customer)",
-    "period": "October 2024 - November 2024",
-    "description": "Developed front-end interface based on Figma designs. Implemented responsive layouts enhancing cross-device compatibility using WordPress & Elementor.",
-    "icon": "💻",
-    "link": "https://ieces.edu.vn"
   }
 ]

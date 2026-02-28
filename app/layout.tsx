@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import '../styles/globals.css'
 import Footer from '@/components/footer'
+import ChatbotLoader from '@/components/chatbot/chatbot-loader'
 
 const baseUrl = process.env.URL_BASE || 'http://localhost:3000'
 const OG_IMAGE = 'https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png'
@@ -23,17 +24,17 @@ export const viewport: Viewport = {
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: {
-    default: 'Trần Hoàng Huy – Software Engineer | Full-Stack Developer Vietnam',
+    default: 'Trần Hoàng Huy – Frontend Developer | React / Next.js',
     template: '%s | Trần Hoàng Huy',
   },
   description:
-    'Trần Hoàng Huy là Software Engineer từ Việt Nam, chuyên về Full-Stack (Next.js, NestJS, React, TypeScript, PostgreSQL). Xem portfolio, dự án thực tế và kinh nghiệm làm việc.',
+    'Trần Hoàng Huy là Frontend Developer chuyên về ReactJS và Next.js, tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.58). Hành trình, dự án và kinh nghiệm ở TekNix, Green Space Solution, UTA.',
   keywords: [
     'Trần Hoàng Huy', 'Tran Hoang Huy', 'huykg1112',
-    'Software Engineer Vietnam', 'Full-Stack Developer',
-    'Next.js Developer', 'React Developer', 'NestJS Developer',
-    'TypeScript', 'PostgreSQL', 'Portfolio', 'Web Developer Ho Chi Minh',
-    'Lập trình viên', 'Can Tho University',
+    'Frontend Developer Vietnam', 'React Developer', 'Next.js Developer',
+    'Frontend Developer Cần Thơ', 'TypeScript Developer', 'Tailwind CSS',
+    'Portfolio', 'Lập trình viên', 'Đại học Cần Thơ', 'TekNix',
+    'WordPress Developer', 'RESTful API', 'NestJS',
   ],
   authors: [{ name: 'Trần Hoàng Huy', url: baseUrl }],
   creator: 'Trần Hoàng Huy',
@@ -49,9 +50,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Trần Hoàng Huy – Software Engineer | Full-Stack Developer',
+    title: 'Trần Hoàng Huy – Frontend Developer | React / Next.js',
     description:
-      'Software Engineer specializing in Full-Stack development with Next.js, NestJS, React & TypeScript. View real projects, work experience and contact.',
+      'Frontend Developer specializing in ReactJS & Next.js. Graduated Can Tho University (GPA 3.58). Experienced at TekNix Technology, Green Space Solution, UTA. View projects and contact.',
     type: 'profile',
     locale: 'vi_VN',
     alternateLocale: 'en_US',
@@ -73,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trần Hoàng Huy – Software Engineer',
+    title: 'Trần Hoàng Huy – Frontend Developer',
     description:
-      'Full-Stack Developer (Next.js, NestJS, React, TypeScript). Portfolio & projects.',
+      'Frontend Developer (React / Next.js) | Portfolio & projects.',
     images: [OG_IMAGE],
     creator: '@huykg1112',
   },
@@ -115,23 +116,24 @@ const personSchema = {
   givenName: 'Huy',
   familyName: 'Trần Hoàng',
   alternateName: ['Tran Hoang Huy', 'huykg1112'],
-  jobTitle: 'Software Engineer',
+  jobTitle: 'Frontend Developer',
   description:
-    'Software Engineer specializing in Full-Stack web development with Next.js, NestJS, React, TypeScript and PostgreSQL. Final-year student at Can Tho University, currently interning at Teknix Corporation.',
-  url: baseUrl,
+    'Frontend Developer chuyên về ReactJS và Next.js. Tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.58/4.0, 2025). Hiện là Frontend Intern tại TekNix Technology Corporation.',
+  url: 'https://thhuydev.id.vn',
+  birthDate: '2002-12-11',
   image: {
     '@type': 'ImageObject',
     url: OG_IMAGE,
     width: 1200,
     height: 630,
-    caption: 'Trần Hoàng Huy – Software Engineer',
+    caption: 'Trần Hoàng Huy – Frontend Developer',
   },
   email: 'huyth.dev@gmail.com',
   telephone: '+84334114244',
   nationality: { '@type': 'Country', name: 'Vietnam' },
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Cần Thơ',
+    addressLocality: 'Ninh Kiều, Cần Thơ',
     addressCountry: 'VN',
   },
   alumniOf: {
@@ -143,17 +145,21 @@ const personSchema = {
   },
   worksFor: {
     '@type': 'Organization',
-    name: 'Teknix Corporation',
+    name: 'TekNix Technology Corporation',
     url: 'https://www.teknix.vn',
   },
   knowsAbout: [
-    'React', 'Next.js', 'NestJS', 'TypeScript', 'JavaScript',
-    'PostgreSQL', 'GraphQL', 'RESTful APIs', 'Tailwind CSS',
-    'Full-Stack Web Development', 'AI Integration', 'PhoBERT',
-    'WordPress', 'Git', 'Docker',
+    'ReactJS', 'Next.js', 'TypeScript', 'JavaScript', 'PHP',
+    'Tailwind CSS', 'Shadcn/UI', 'MUI', 'Hero UI', 'Ant Design',
+    'Redux Toolkit', 'Jotai', 'Context API',
+    'NestJS', 'RESTful APIs', 'GraphQL', 'JWT Authentication', 'OAuth 2.0',
+    'PostgreSQL', 'TypeORM', 'Prisma ORM',
+    'WordPress', 'Git', 'GitHub', 'Vercel', 'Framer',
+    'Flutter', 'Clean Architecture', 'Responsive Design', 'SEO',
   ],
   knowsLanguage: ['vi', 'en'],
   sameAs: [
+    'https://thhuydev.id.vn',
     'https://github.com/huykg1112',
     'https://www.linkedin.com/in/hoang-huy-tran-23baa6358',
     'https://www.facebook.com/tran.huy.113299/',
@@ -209,7 +215,7 @@ const faqSchema = {
       name: 'Trần Hoàng Huy là ai?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Trần Hoàng Huy (Tran Hoang Huy) là một Software Engineer đến từ Cần Thơ, Việt Nam. Anh hiện là sinh viên năm cuối ngành Kỹ thuật phần mềm tại Đại học Cần Thơ và đang thực tập tại Teknix Corporation, specializing in Full-Stack web development.',
+        text: 'Trần Hoàng Huy (Tran Hoang Huy) là Frontend Developer chuyên về ReactJS và Next.js đến từ Ninh Kiều, Cần Thơ, Việt Nam. Anh tốt nghiệp ngành Kỹ thuật Phần mềm tại Đại học Cần Thơ (GPA 3.58/4.0, tháng 12/2025) và hiện đang thực tập tại TekNix Technology Corporation.',
       },
     },
     {
@@ -217,7 +223,7 @@ const faqSchema = {
       name: 'What technologies does Trần Hoàng Huy specialize in?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Trần Hoàng Huy specializes in Next.js, React, NestJS, TypeScript, PostgreSQL, GraphQL, Tailwind CSS, and WordPress. He has experience building AI-integrated web applications using PhoBERT for natural language processing.',
+        text: 'Trần Hoàng Huy specializes in ReactJS, Next.js, TypeScript, Tailwind CSS, Shadcn/UI, MUI, Redux Toolkit, Jotai and WordPress on the frontend. On the backend he works with NestJS, RESTful APIs, GraphQL, PostgreSQL and Prisma ORM. He also has experience with Flutter for mobile development and uses AI tools (ChatGPT, Gemini, v0, Lovable) in his workflow.',
       },
     },
     {
@@ -225,7 +231,7 @@ const faqSchema = {
       name: 'What projects has Trần Hoàng Huy built?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Trần Hoàng Huy's notable projects include: (1) E-Commerce Farm Project – his bachelor's thesis, an AI-powered agricultural e-commerce platform using Next.js, NestJS, PostgreSQL and a PhoBERT-based crop disease diagnosis model with ~97% accuracy. (2) Portfolio Website – built with Next.js, Tailwind CSS and deployed on Vercel. (3) Booking Homestay – a full-stack property booking web app.",
+        text: "Trần Hoàng Huy's notable projects include: (1) DevoseCare Dashboard (TekNix Corporation, Feb 2026) – Internal management dashboard with Kanban drag-and-drop appointment board, customer management, CMS module and role-based permissions. Built with ReactJS, Vite, Shadcn/UI, Zustand and dnd-kit. Demo: https://devoscare-dashboard.blocktrend.xyz. (2) E-commerce Farm Platform (Bachelor's thesis, Apr–Aug 2025) – AI-powered agricultural e-commerce platform with PhoBERT-based crop-disease diagnosis (~97% accuracy), built with Next.js, NestJS and PostgreSQL. (3) Homestay Booking Web App (Group project, Apr–Aug 2024) – Full-stack property booking application for clients, landlords and admins.",
       },
     },
     {
@@ -233,7 +239,7 @@ const faqSchema = {
       name: 'Where has Trần Hoàng Huy worked?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Trần Hoàng Huy has worked at: Teknix Corporation (Developer Intern, 2025–present) building dental clinic websites; Green Space Solution (Developer Intern, June–August 2025) on the AutoTMS project; and UTA Co., Ltd (IT Intern, 2024–2025) where he developed an AI pest diagnosis system achieving ~97% accuracy using PhoBERT.',
+        text: 'Trần Hoàng Huy has interned at three companies: (1) TekNix Technology Corporation (Frontend Intern, September 2025–present) – building and optimising dental clinic websites with ReactJS, Next.js and WordPress. (2) Green Space Solution JSC (Fullstack Intern, June–August 2025) – developing the AutoTMS transport management system with Next.js, NestJS, Strapi and GraphQL. (3) UTA Co., Ltd (IT Intern, June 2024–April 2025) – building an AI-based pest diagnosis feature using PhoBERT achieving ~97% accuracy with ReactJS and NestJS.',
       },
     },
     {
@@ -241,7 +247,7 @@ const faqSchema = {
       name: 'How can I contact Trần Hoàng Huy?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You can contact Trần Hoàng Huy via email at huyth.dev@gmail.com, on GitHub at github.com/huykg1112, on LinkedIn at linkedin.com/in/hoang-huy-tran-23baa6358, or by phone at +84 334 114 244.',
+        text: 'You can contact Trần Hoàng Huy via email at huyth.dev@gmail.com, on GitHub at github.com/huykg1112, on LinkedIn at linkedin.com/in/hoang-huy-tran-23baa6358, via his personal website https://thhuydev.id.vn, or by phone at +84 334 114 244.',
       },
     },
     {
@@ -249,7 +255,7 @@ const faqSchema = {
       name: 'Is Trần Hoàng Huy available for work or freelance projects?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Trần Hoàng Huy is actively looking for opportunities to join a cross-functional software engineering team. He is open to full-time roles, internships, and collaboration on innovative web development projects.',
+        text: 'Yes. Trần Hoàng Huy is actively seeking full-time Frontend Developer positions and is open to collaboration on innovative React/Next.js web projects. He brings solid experience from three internships and multiple production-grade projects.',
       },
     },
   ],
@@ -263,11 +269,28 @@ const projectsListSchema = {
   name: 'Projects by Trần Hoàng Huy',
   description: 'A list of software projects developed by Trần Hoàng Huy',
   author: { '@id': `${baseUrl}/#person` },
-  numberOfItems: 3,
+  numberOfItems: 4,
   itemListElement: [
     {
       '@type': 'ListItem',
       position: 1,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'DevoseCare Dashboard',
+        description:
+          'Internal management dashboard for DevoseCare medical center built at Teknix Corporation (Feb 2026). Features: full appointment lifecycle management with Kanban drag-and-drop (dnd-kit), customer list management, CMS for Client App content, role-based staff permissions, login/logout.',
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'Web',
+        author: { '@id': `${baseUrl}/#person` },
+        programmingLanguage: ['JavaScript', 'TypeScript'],
+        url: 'https://devoscare-dashboard.blocktrend.xyz',
+        softwareVersion: '1.0',
+        datePublished: '2026-02-27',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
       item: {
         '@type': 'SoftwareApplication',
         name: 'E-Commerce Farm Project',
@@ -282,7 +305,7 @@ const projectsListSchema = {
     },
     {
       '@type': 'ListItem',
-      position: 2,
+      position: 3,
       item: {
         '@type': 'WebSite',
         name: 'Trần Hoàng Huy Portfolio',
@@ -293,7 +316,7 @@ const projectsListSchema = {
     },
     {
       '@type': 'ListItem',
-      position: 3,
+      position: 4,
       item: {
         '@type': 'SoftwareApplication',
         name: 'Booking Homestay',
@@ -355,6 +378,7 @@ export default function RootLayout({
 
         {children}
         <Footer />
+        <ChatbotLoader />
         <Analytics />
       </body>
     </html>
