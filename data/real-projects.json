@@ -1,5 +1,15 @@
 [
   {
+    "name": "DevoseCare Dashboard",
+    "period": "02/2026",
+    "role": "Front-End Developer",
+    "company": "Teknix Corporation",
+    "tech": ["ReactJS", "Vite", "Tailwind CSS", "Shadcn UI", "Zustand", "dnd-kit", "Axios", "React Hook Form", "Zod"],
+    "description": "Internal management dashboard for DevoseCare center (Feb 02 – Feb 27, 2026). Responsible for: project & build configuration, role-based staff permissions, login/logout flow, Kanban appointment board with drag-and-drop (dnd-kit), customer list management, CMS module for controlling content displayed on the Client App, and overall UI/UX optimization.",
+    "impact": "Delivered a full internal operations tool in under 4 weeks, enabling staff to manage appointments, customers and app content from a single interface",
+    "link": "https://devoscare-dashboard.blocktrend.xyz"
+  },
+  {
     "name": "E-Commerce Platform (E-Shop)",
     "period": "2023 – 2024",
     "role": "Frontend Engineer",

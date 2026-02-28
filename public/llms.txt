@@ -34,23 +34,39 @@ Other: Framer Motion, Prisma
 
 ## Work Experience
 
-1. Developer Intern — Teknix Corporation (Sep 2025 – present)
+1. Front-End Developer — DevoseCare Dashboard · Teknix Corporation (Feb 2026)
+   Built an internal management dashboard for DevoseCare center:
+   Kanban appointment board with drag-and-drop (dnd-kit), customer list management,
+   CMS module for App content control, role-based staff permissions, login/logout.
+   Stack: ReactJS, Vite, Tailwind CSS, Shadcn UI, Zustand, dnd-kit, Axios, React Hook Form, Zod.
+   Demo: https://devoscare-dashboard.blocktrend.xyz
+
+2. Developer Intern — Teknix Corporation (Sep 2025 – present)
    Build and maintain websites for international dental clinics using WordPress and Next.js.
 
-2. Developer Intern — Green Space Solution (Jun 2025 – Aug 2025)
+3. Developer Intern — Green Space Solution (Jun 2025 – Aug 2025)
    Contributed to AutoTMS project, optimized UI and integrated data modules.
 
-3. IT Intern — UTA Co., Ltd (Jun 2024 – Apr 2025)
+4. IT Intern — UTA Co., Ltd (Jun 2024 – Apr 2025)
    Developed an AI pest diagnosis system using PhoBERT with ~97% accuracy.
    Optimized web apps for PagoSolution and IECES projects.
 
-4. AI & Front-End Developer — PagoSolution / UTA (Jul 2024 – Apr 2025)
+5. AI & Front-End Developer — PagoSolution / UTA (Jul 2024 – Apr 2025)
    Built AI pest diagnosis system; optimized UI with ReactJS, NestJS, GraphQL.
 
-5. Front-End Developer — IECES Project (Oct 2024 – Nov 2024)
+6. Front-End Developer — IECES Project (Oct 2024 – Nov 2024)
    Implemented responsive Figma designs using WordPress & Elementor.
 
 ## Projects
+
+### DevoseCare Dashboard
+- Company: Teknix Corporation
+- Period: Feb 02 – Feb 27, 2026
+- Tech: ReactJS, Vite, Tailwind CSS, Shadcn UI, Zustand, dnd-kit, Axios, React Hook Form, Zod
+- Description: Internal management dashboard for DevoseCare medical center.
+  Features: Kanban appointment board with drag-and-drop, customer list management,
+  CMS module for Client App content, role-based staff permissions, login/logout.
+- Demo: https://devoscare-dashboard.blocktrend.xyz
 
 ### E-Commerce Farm Project (Bachelor's Thesis)
 - Tech: Next.js, NestJS, PostgreSQL, PhoBERT (fine-tuned from PhoBERT)

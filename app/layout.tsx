@@ -225,7 +225,7 @@ const faqSchema = {
       name: 'What projects has Trần Hoàng Huy built?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Trần Hoàng Huy's notable projects include: (1) E-Commerce Farm Project – his bachelor's thesis, an AI-powered agricultural e-commerce platform using Next.js, NestJS, PostgreSQL and a PhoBERT-based crop disease diagnosis model with ~97% accuracy. (2) Portfolio Website – built with Next.js, Tailwind CSS and deployed on Vercel. (3) Booking Homestay – a full-stack property booking web app.",
+        text: "Trần Hoàng Huy's notable projects include: (1) DevoseCare Dashboard (Feb 2026, Teknix Corporation) – Internal management dashboard with Kanban drag-and-drop appointment board, customer management, CMS module, and role-based permissions, built with ReactJS, Vite, Shadcn UI, Zustand and dnd-kit. Demo: https://devoscare-dashboard.blocktrend.xyz. (2) E-Commerce Farm Project – his bachelor's thesis, an AI-powered agricultural e-commerce platform using Next.js, NestJS, PostgreSQL and a PhoBERT-based crop disease diagnosis model with ~97% accuracy. (3) Portfolio Website – built with Next.js, Tailwind CSS and deployed on Vercel. (4) Booking Homestay – a full-stack property booking web app.",
       },
     },
     {
@@ -263,11 +263,28 @@ const projectsListSchema = {
   name: 'Projects by Trần Hoàng Huy',
   description: 'A list of software projects developed by Trần Hoàng Huy',
   author: { '@id': `${baseUrl}/#person` },
-  numberOfItems: 3,
+  numberOfItems: 4,
   itemListElement: [
     {
       '@type': 'ListItem',
       position: 1,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: 'DevoseCare Dashboard',
+        description:
+          'Internal management dashboard for DevoseCare medical center built at Teknix Corporation (Feb 2026). Features: full appointment lifecycle management with Kanban drag-and-drop (dnd-kit), customer list management, CMS for Client App content, role-based staff permissions, login/logout.',
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'Web',
+        author: { '@id': `${baseUrl}/#person` },
+        programmingLanguage: ['JavaScript', 'TypeScript'],
+        url: 'https://devoscare-dashboard.blocktrend.xyz',
+        softwareVersion: '1.0',
+        datePublished: '2026-02-27',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
       item: {
         '@type': 'SoftwareApplication',
         name: 'E-Commerce Farm Project',
@@ -282,7 +299,7 @@ const projectsListSchema = {
     },
     {
       '@type': 'ListItem',
-      position: 2,
+      position: 3,
       item: {
         '@type': 'WebSite',
         name: 'Trần Hoàng Huy Portfolio',
@@ -293,7 +310,7 @@ const projectsListSchema = {
     },
     {
       '@type': 'ListItem',
-      position: 3,
+      position: 4,
       item: {
         '@type': 'SoftwareApplication',
         name: 'Booking Homestay',

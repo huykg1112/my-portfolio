@@ -25,8 +25,14 @@
   },
   {
     "id": 5,
-    "year": "Current",
+    "year": "2025",
     "title": "Developer Intern at Teknix Corporation",
     "description": "Building and maintaining websites for international dental clinics"
+  },
+  {
+    "id": 6,
+    "year": "2026",
+    "title": "DevoseCare Dashboard — Teknix Corporation",
+    "description": "Built a full-featured internal management dashboard for DevoseCare center: Kanban appointment board with drag-and-drop, customer list management, CMS for App content, role-based staff permissions, and login/logout. Stack: ReactJS, Vite, Tailwind, Shadcn, Zustand, dnd-kit."
   }
 ]

@@ -1,6 +1,15 @@
 [
   {
     "id": 1,
+    "title": "Front-End Developer — DevoseCare Dashboard",
+    "company": "Teknix Corporation",
+    "period": "February 2026",
+    "description": "Built an internal management dashboard for DevoseCare center. Configured the project & build pipeline, implemented role-based staff permissions, login/logout flow, Kanban appointment board with drag-and-drop (dnd-kit), customer list management, CMS module for App content control, and UI/UX optimization.",
+    "icon": "🏥",
+    "link": "https://devoscare-dashboard.blocktrend.xyz"
+  },
+  {
+    "id": 2,
     "title": "Developer Intern",
     "company": "Teknix Corporation",
     "period": "September 2025 - Present",
@@ -9,7 +18,7 @@
     "link": "https://www.teknix.vn/"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Developer Intern",
     "company": "Green Space Solution",
     "period": "June 2025 - August 2025",
@@ -18,7 +27,7 @@
     "link": "https://www.autotms.vn/"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "IT Intern",
     "company": "UTA Co., Ltd",
     "period": "June 2024 - April 2025",
@@ -27,7 +36,7 @@
     "link": "https://utasolution.com"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "AI & Front-End Developer",
     "company": "PagoSolution (UTA Internal)",
     "period": "July 2024 - April 2025",
@@ -36,7 +45,7 @@
     "link": "https://pagosolution.com"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Front-End Developer",
     "company": "IECES Project (UTA Customer)",
     "period": "October 2024 - November 2024",
