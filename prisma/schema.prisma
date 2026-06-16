@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Doc {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  summary   String   @default("")
+  tags      String[] @default([])
+  content   String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([updatedAt])
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  subtitleEn    String
+  subtitleVi    String
+  descriptionEn String
+  descriptionVi String
+  tech          String[] @default([])
+  tags          String[] @default([])
+  year          String
+  role          String?
+  company       String?
+  demoUrl       String?
+  repoUrl       String?
+  featured      Boolean  @default(false)
+  order         Int      @default(0)
+
+  @@index([order])
+}
+
+model Experience {
+  id            String   @id @default(cuid())
+  company       String
+  role          String
+  periodEn      String
+  periodVi      String
+  descriptionEn String
+  descriptionVi String
+  tech          String[] @default([])
+  link          String?
+  order         Int      @default(0)
+
+  @@index([order])
+}
+
+model Skill {
+  id       String @id @default(cuid())
+  name     String @unique
+  icon     String
+  category String
+  order    Int    @default(0)
+
+  @@index([order])
+}

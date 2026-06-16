@@ -1,0 +1,133 @@
+{
+  "Nav": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "docs": "Tài liệu",
+    "contact": "Liên hệ"
+  },
+  "Header": {
+    "resume": "Tải CV",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "menu": "Menu",
+    "toLight": "Chuyển sang giao diện sáng",
+    "toDark": "Chuyển sang giao diện tối",
+    "language": "Ngôn ngữ"
+  },
+  "Hero": {
+    "availability": "Đang tìm vị trí toàn thời gian",
+    "lead": "Frontend Developer xây dựng web nhanh, dễ truy cập với <hl>React</hl> & <hl>Next.js</hl>.",
+    "intro": "Sinh viên năm cuối ngành Kỹ thuật Phần mềm, Đại học Cần Thơ (GPA 3.58). Hiện đang phát triển nền tảng cho phòng khám nha khoa tại TekNix. Mình chú trọng hiệu năng, giao diện gọn gàng và đưa sản phẩm thật ra thị trường.",
+    "viewProjects": "Xem dự án",
+    "getInTouch": "Liên hệ"
+  },
+  "Home": {
+    "workEyebrow": "Dự án tiêu biểu",
+    "workTitle": "Những dự án mình tự hào",
+    "workDesc": "Một vài thứ mình xây gần đây — từ dashboard nội bộ đến nền tảng tích hợp AI.",
+    "workViewAll": "Xem tất cả dự án",
+    "stackEyebrow": "Bộ công cụ",
+    "stackTitle": "Công nghệ mình dùng",
+    "stackDesc": "Bộ công nghệ mình chọn để xây sản phẩm nhanh, dễ truy cập từ đầu đến cuối.",
+    "ctaTitle": "Cùng nhau xây điều gì đó nhé",
+    "ctaDesc": "Mình sẵn sàng cho các vị trí Frontend toàn thời gian và những dự án thú vị. Kể mình nghe bạn đang làm gì nhé.",
+    "ctaButton": "Liên hệ"
+  },
+  "Card": {
+    "liveDemo": "Bản demo",
+    "code": "Mã nguồn",
+    "private": "Dự án nội bộ"
+  },
+  "Projects": {
+    "eyebrow": "Dự án",
+    "title": "Những thứ mình đã xây",
+    "desc": "Tổng hợp công việc thực tế từ thực tập, luận văn tốt nghiệp và các dự án cá nhân. Lọc theo thứ bạn quan tâm.",
+    "all": "Tất cả"
+  },
+  "About": {
+    "eyebrow": "Giới thiệu",
+    "title": "Frontend developer thích đưa sản phẩm ra đời",
+    "p1": "Mình là Huy, sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học Cần Thơ. Qua ba kỳ thực tập, mình đã xây nhiều giao diện thực tế — từ hàng loạt website phòng khám, dashboard nội bộ đến nền tảng tích hợp AI cho luận văn.",
+    "p2": "Mình quan tâm tới hiệu năng, khả năng truy cập và thiết kế component gọn gàng. Vùng an toàn của mình là React và Next.js với TypeScript, nhưng mình cũng thoải mái dựng API NestJS hay schema PostgreSQL khi dự án cần.",
+    "p3": "Ngoài công việc, mình viết ghi chú học tập (có vài bài trong mục Tài liệu) và liên tục thử các công cụ mới để làm nhanh hơn mà không cẩu thả.",
+    "factEducation": "Học vấn",
+    "factEducationValue": "Kỹ thuật Phần mềm, Đại học Cần Thơ · GPA 3.58",
+    "factCurrently": "Hiện tại",
+    "factCurrentlyValue": "Thực tập Frontend tại TekNix Technology",
+    "factLocation": "Nơi ở",
+    "factLocationValue": "Ninh Kiều, Cần Thơ, Việt Nam",
+    "factLanguages": "Ngôn ngữ",
+    "factLanguagesValue": "Tiếng Việt (bản ngữ), Tiếng Anh (giao tiếp công việc)",
+    "experienceEyebrow": "Kinh nghiệm",
+    "experienceTitle": "Nơi mình đã làm",
+    "skillsEyebrow": "Kỹ năng",
+    "skillsTitle": "Công nghệ mình dùng"
+  },
+  "Contact": {
+    "eyebrow": "Liên hệ",
+    "title": "Cùng trò chuyện nhé",
+    "desc": "Bạn có vị trí tuyển dụng, một dự án, hay chỉ muốn chào hỏi? Gửi tin nhắn, mình sẽ phản hồi sớm.",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "location": "Địa chỉ",
+    "locationValue": "Ninh Kiều, Cần Thơ, Việt Nam",
+    "elsewhere": "Nơi khác"
+  },
+  "Form": {
+    "name": "Họ tên",
+    "namePlaceholder": "Nguyễn Văn A…",
+    "email": "Email",
+    "emailPlaceholder": "ban@example.com…",
+    "subject": "Tiêu đề",
+    "subjectPlaceholder": "Hỏi về dự án, hợp tác…",
+    "message": "Nội dung",
+    "messagePlaceholder": "Chào Huy, mình muốn trao đổi…",
+    "send": "Gửi tin nhắn",
+    "sending": "Đang gửi…",
+    "successTitle": "Đã gửi!",
+    "successDesc": "Cảm ơn bạn đã liên hệ. Mình sẽ phản hồi sớm nhất có thể.",
+    "another": "Gửi tin nhắn khác",
+    "genericError": "Có lỗi xảy ra. Vui lòng thử lại.",
+    "networkError": "Lỗi mạng. Vui lòng kiểm tra kết nối và thử lại."
+  },
+  "Docs": {
+    "eyebrow": "Tài liệu",
+    "title": "Ghi chú học tập & bài viết",
+    "desc": "Những thứ mình đang học, viết lại bằng Markdown cho mình của tương lai.",
+    "newDoc": "Bài mới",
+    "empty": "Chưa có tài liệu nào.",
+    "updated": "Cập nhật {date}",
+    "allDocs": "Tất cả tài liệu",
+    "edit": "Sửa",
+    "notFound": "Tài liệu này không tồn tại (hoặc chưa đồng bộ về trình duyệt này).",
+    "backToDocs": "Quay lại danh sách",
+    "editTitle": "Sửa tài liệu",
+    "newTitle": "Tài liệu mới",
+    "delete": "Xoá",
+    "cancel": "Huỷ",
+    "save": "Lưu",
+    "fieldTitle": "Tiêu đề",
+    "fieldTags": "Thẻ (phân tách bằng dấu phẩy)",
+    "fieldSummary": "Tóm tắt ngắn",
+    "write": "Viết",
+    "preview": "Xem trước",
+    "confirmDelete": "Xoá tài liệu này? Không thể hoàn tác.",
+    "adminOnly": "Chỉ dành cho admin",
+    "adminDesc": "Nhập mật khẩu để viết hoặc sửa tài liệu.",
+    "password": "Mật khẩu",
+    "wrongPassword": "Sai mật khẩu. Thử lại nhé.",
+    "unlock": "Mở khoá"
+  },
+  "Chatbot": {
+    "title": "Trợ lý AI của Huy",
+    "poweredBy": "Vận hành bởi Gemini",
+    "welcome": "Xin chào! Mình là trợ lý AI của **Trần Hoàng Huy** 👋\n\nBạn có thể hỏi mình về kỹ năng, kinh nghiệm, dự án hoặc cách liên hệ với Huy nhé!",
+    "placeholder": "Nhập câu hỏi… (Enter để gửi)",
+    "shiftEnter": "Shift+Enter để xuống dòng",
+    "clear": "Xoá cuộc trò chuyện",
+    "close": "Đóng chatbot",
+    "open": "Mở chatbot",
+    "send": "Gửi"
+  }
+}

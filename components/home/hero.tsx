@@ -1,152 +1,129 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import Image from "next/image";
+import Image from "next/image"
+import { motion, useReducedMotion } from "framer-motion"
+import { useTranslations } from "next-intl"
+import { ArrowUpRight, Mail } from "lucide-react"
+import { Link } from "@/i18n/navigation"
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons"
+
+const AVATAR =
+  "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
+
+const STACK = ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "Tailwind CSS"]
+
+const SOCIALS = [
+  { href: "https://github.com/huykg1112", label: "GitHub", Icon: GithubIcon },
+  { href: "https://www.linkedin.com/in/hoang-huy-tran-23baa6358", label: "LinkedIn", Icon: LinkedinIcon },
+  { href: "mailto:huyth.dev@gmail.com", label: "Email", Icon: Mail },
+]
 
 export default function Hero() {
-  const { ref, isVisible } = useScrollReveal();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  };
+  const t = useTranslations("Hero")
+  const reduce = useReducedMotion()
+  const rise = (delay: number) => ({
+    initial: { opacity: 0, y: reduce ? 0 : 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as const },
+  })
 
   return (
-    <section ref={ref} className="min-h-screen flex items-center pt-36 px-6">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+    <section className="container-page flex min-h-[88svh] items-center pt-24 pb-16">
+      <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        {/* Left — copy */}
+        <div className="max-w-xl">
           <motion.div
-            className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
+            {...rise(0)}
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground"
           >
-            <motion.div className="space-y-2" variants={itemVariants}>
-              <p className="text-sm text-muted-foreground">Hello! I am</p>
-              <motion.h1
-                className="text-5xl md:text-7xl font-extrabold text-primary"
-                whileHover={{ scale: 1.02 }}
-              >
-                Tran Hoang Huy
-              </motion.h1>
-            </motion.div>
-
-            <motion.div className="space-y-2" variants={itemVariants}>
-              <p className="text-sm text-muted-foreground">A Developer who</p>
-              <h2 className="text-5xl md:text-7xl font-extrabold text-foreground">
-                Builds <br /> scalable{" "}
-                <span className="text-primary">solutions</span>
-              </h2>
-              <p className="text-sm text-muted-foreground pt-2">
-                Turning ideas into user-friendly web applications
-              </p>
-            </motion.div>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            {t("availability")}
           </motion.div>
 
-          {/* Right - Avatar */}
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            initial={{ opacity: 0, scale: 0.8, x: 50 }}
-            animate={
-              isVisible
-                ? { opacity: 1, scale: 1, x: 0 }
-                : { opacity: 0, scale: 0.8, x: 50 }
-            }
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <motion.h1
+            {...rise(0.05)}
+            className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
-            <motion.div
-              className="relative w-80 h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center overflow-hidden shadow-purple-glow"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 40px rgba(167, 85, 240, 0.6)",
-              }}
-              transition={{ duration: 0.3 }}
+            Tran Hoang Huy
+          </motion.h1>
+
+          <motion.p {...rise(0.1)} className="mt-3 text-xl font-medium text-foreground/90 sm:text-2xl">
+            {t.rich("lead", { hl: (chunks) => <span className="text-primary">{chunks}</span> })}
+          </motion.p>
+
+          <motion.p {...rise(0.15)} className="mt-5 text-base leading-relaxed text-muted-foreground">
+            {t("intro")}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div {...rise(0.2)} className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"
-                animate={{
-                  backgroundPosition: ["0% 0%", "100% 100%"],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                }}
-              />
-              <motion.div
-                className="relative w-full h-full"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-              >
-                <Image
-                  src="https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
-                  alt="Avatar Image"
-                  fill 
-                  style={{ objectFit: "cover", objectPosition: "top center" }}
-                />
-              </motion.div>
-            </motion.div>
+              {t("viewProjects")}
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {t("getInTouch")}
+            </Link>
+
+            <div className="ml-1 flex items-center gap-1">
+              {SOCIALS.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
           </motion.div>
+
+          {/* Stack */}
+          <motion.ul {...rise(0.25)} className="mt-9 flex flex-wrap gap-2">
+            {STACK.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-md border border-border bg-card px-2.5 py-1 text-xs font-medium text-muted-foreground"
+              >
+                {tech}
+              </li>
+            ))}
+          </motion.ul>
         </div>
 
-        {/* Engineer Section */}
+        {/* Right — framed portrait */}
         <motion.div
-          className="mt-20 space-y-8"
-          initial={{ opacity: 0, y: 40 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          initial={{ opacity: 0, scale: reduce ? 1 : 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto"
         >
-          <motion.h3
-            className="text-4xl md:text-5xl font-bold text-foreground"
-            whileHover={{ x: 5 }}
-          >
-            I&apos;m a SOFTWARE ENGINEER |
-          </motion.h3>
-          <motion.p
-            className="text-lg text-foreground leading-relaxed max-w-2xl"
-            variants={itemVariants}
-          >
-            Final-year Software Engineering student at Can Tho University with hands-on experience in real-world projects. Currently working at{" "}
-            <motion.a
-              href="https://www.teknix.vn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-accent transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Teknix Corporation
-            </motion.a>.
-          </motion.p>
-          <div className="space-y-4 text-foreground leading-relaxed max-w-3xl">
-            <motion.p variants={itemVariants}>
-              Skilled in ReactJS, Next.js, NestJS, WordPress, and PostgreSQL, I focus on building scalable,
-              user-friendly web applications with modern technologies.
-            </motion.p>
-            <motion.p variants={itemVariants}>
-              I create meaningful digital products that balance user needs with technical excellence, 
-              continuously improving with best practices and cutting-edge tools.
-            </motion.p>
+          <div className="absolute -inset-3 -z-10 rounded-3xl bg-linear-to-tr from-primary/10 to-accent/10" aria-hidden />
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
+            <Image
+              src={AVATAR}
+              alt="Portrait of Tran Hoang Huy"
+              width={520}
+              height={620}
+              priority
+              className="h-auto w-full object-cover"
+              style={{ objectPosition: "top center" }}
+            />
           </div>
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

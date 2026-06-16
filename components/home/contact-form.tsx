@@ -4,6 +4,7 @@ import { useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { motion, AnimatePresence } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { contactSchema, type ContactFormData } from "@/lib/contact-schema"
 
 const inputClass =
@@ -32,6 +33,7 @@ function FieldError({ message }: { message?: string }) {
 }
 
 export default function ContactForm() {
+  const t = useTranslations("Form")
   const [isPending, startTransition] = useTransition()
 
   const {
@@ -63,14 +65,14 @@ export default function ContactForm() {
               setError(key, { message: fields[key]?.[0] ?? "Invalid value" })
             })
           } else {
-            setError("root", { message: json.error ?? "Something went wrong. Please try again." })
+            setError("root", { message: json.error ?? t("genericError") })
           }
           return
         }
 
         reset()
       } catch {
-        setError("root", { message: "Network error. Please check your connection and try again." })
+        setError("root", { message: t("networkError") })
       }
     })
   }
@@ -84,16 +86,14 @@ export default function ContactForm() {
         transition={{ duration: 0.4 }}
       >
         <div className="text-4xl" aria-hidden="true">🎉</div>
-        <h3 className="text-lg font-semibold text-foreground">Message sent!</h3>
-        <p className="text-sm text-muted-foreground">
-          Thanks for reaching out. I&apos;ll get back to you as soon as possible.
-        </p>
+        <h3 className="text-lg font-semibold text-foreground">{t("successTitle")}</h3>
+        <p className="text-sm text-muted-foreground">{t("successDesc")}</p>
         <button
           type="button"
           onClick={() => reset(undefined, { keepIsSubmitted: false })}
           className="mt-2 text-sm text-primary underline underline-offset-4 hover:text-accent transition-colors"
         >
-          Send another message
+          {t("another")}
         </button>
       </motion.div>
     )
@@ -126,14 +126,14 @@ export default function ContactForm() {
         {/* Name */}
         <div>
           <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-1.5">
-            Name <span aria-hidden="true" className="text-primary">*</span>
+            {t("name")} <span aria-hidden="true" className="text-primary">*</span>
           </label>
           <input
             id="contact-name"
             type="text"
             autoComplete="name"
             spellCheck={false}
-            placeholder="Nguyen Van A…"
+            placeholder={t("namePlaceholder")}
             disabled={isPending}
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "contact-name-error" : undefined}
@@ -148,7 +148,7 @@ export default function ContactForm() {
         {/* Email */}
         <div>
           <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-1.5">
-            Email <span aria-hidden="true" className="text-primary">*</span>
+            {t("email")} <span aria-hidden="true" className="text-primary">*</span>
           </label>
           <input
             id="contact-email"
@@ -156,7 +156,7 @@ export default function ContactForm() {
             autoComplete="email"
             inputMode="email"
             spellCheck={false}
-            placeholder="you@example.com…"
+            placeholder={t("emailPlaceholder")}
             disabled={isPending}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "contact-email-error" : undefined}
@@ -172,14 +172,14 @@ export default function ContactForm() {
       {/* Subject */}
       <div>
         <label htmlFor="contact-subject" className="block text-sm font-medium text-foreground mb-1.5">
-          Subject <span aria-hidden="true" className="text-primary">*</span>
+          {t("subject")} <span aria-hidden="true" className="text-primary">*</span>
         </label>
         <input
           id="contact-subject"
           type="text"
           autoComplete="off"
           spellCheck={false}
-          placeholder="Project inquiry, collaboration…"
+          placeholder={t("subjectPlaceholder")}
           disabled={isPending}
           aria-invalid={!!errors.subject}
           aria-describedby={errors.subject ? "contact-subject-error" : undefined}
@@ -194,13 +194,13 @@ export default function ContactForm() {
       {/* Message */}
       <div>
         <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-1.5">
-          Message <span aria-hidden="true" className="text-primary">*</span>
+          {t("message")} <span aria-hidden="true" className="text-primary">*</span>
         </label>
         <textarea
           id="contact-message"
           rows={5}
           autoComplete="off"
-          placeholder="Hi Huy, I'd love to discuss…"
+          placeholder={t("messagePlaceholder")}
           disabled={isPending}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "contact-message-error" : undefined}
@@ -219,7 +219,7 @@ export default function ContactForm() {
         whileHover={isPending ? {} : { scale: 1.02 }}
         whileTap={isPending ? {} : { scale: 0.98 }}
         className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-background font-semibold text-sm transition-all hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-70 disabled:cursor-not-allowed shadow-purple-glow"
-        aria-label={isPending ? "Sending message…" : "Send message"}
+        aria-label={isPending ? t("sending") : t("send")}
       >
         {isPending ? (
           <>
@@ -237,10 +237,10 @@ export default function ContactForm() {
                 d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
               />
             </svg>
-            Sending…
+            {t("sending")}
           </>
         ) : (
-          "Send Message"
+          t("send")
         )}
       </motion.button>
     </form>
