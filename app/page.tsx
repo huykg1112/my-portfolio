@@ -1,10 +1,9 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Hero from '@/components/home/hero'
 import FeaturedProjects from '@/components/home/featured-projects'
-import WorkExperience from '@/components/home/work-experience'
 import TechStack from '@/components/home/tech-stack'
-import Contact from '@/components/home/contact'
-import type { Metadata } from 'next'
+import CTA from '@/components/home/cta'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -16,9 +15,8 @@ export default function Home() {
       <Header />
       <Hero />
       <FeaturedProjects />
-      <WorkExperience />
       <TechStack />
-      <Contact />
+      <CTA />
     </main>
   )
 }

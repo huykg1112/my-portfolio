@@ -1,10 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
+import { Geist, Geist_Mono } from 'next/font/google'
 
 import { Analytics } from '@vercel/analytics/next'
 import '../styles/globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 import Footer from '@/components/footer'
 import ChatbotLoader from '@/components/chatbot/chatbot-loader'
+
+const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display: 'swap' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' })
 
 const baseUrl = process.env.URL_BASE || 'http://localhost:3000'
 const OG_IMAGE = 'https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png'
@@ -16,7 +21,7 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: dark)', color: '#100e19' },
     { media: '(prefers-color-scheme: light)', color: '#a755f0' },
   ],
-  colorScheme: 'dark',
+  colorScheme: 'light dark',
   width: 'device-width',
   initialScale: 1,
 }
@@ -337,7 +342,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="vi" color-scheme="dark" suppressHydrationWarning>
+    <html lang="vi" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Performance: preconnect CDN */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
@@ -376,9 +381,11 @@ export default function RootLayout({
           {JSON.stringify(projectsListSchema)}
         </Script>
 
-        {children}
-        <Footer />
-        <ChatbotLoader />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+          {children}
+          <Footer />
+          <ChatbotLoader />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
