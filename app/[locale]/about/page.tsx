@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { getLocale, getTranslations, setRequestLocale } from "next-intl/server"
+import { getTranslations, setRequestLocale } from "next-intl/server"
 import { GraduationCap, MapPin, Languages, Briefcase } from "lucide-react"
 import Header from "@/components/header"
 import Reveal from "@/components/reveal"
 import SectionHeading from "@/components/section-heading"
 import ExperienceTimeline from "@/components/about/experience-timeline"
-import { getExperiences, skillGroups } from "@/lib/content"
+import { getExperiences, getSkillGroups } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,7 +21,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations("About")
-  const experiences = getExperiences(await getLocale())
+  const experiences = await getExperiences(locale)
+  const skillGroups = await getSkillGroups()
 
   const facts = [
     { Icon: GraduationCap, label: t("factEducation"), value: t("factEducationValue") },

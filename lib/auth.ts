@@ -1,4 +1,5 @@
 import crypto from "crypto"
+import { cookies } from "next/headers"
 
 /**
  * Minimal signed-cookie auth for the single site owner.
@@ -16,6 +17,12 @@ export function createToken(): string {
   const payload = Buffer.from(JSON.stringify({ exp })).toString("base64url")
   const sig = crypto.createHmac("sha256", SECRET).update(payload).digest("base64url")
   return `${payload}.${sig}`
+}
+
+/** Server-side: is the current request authenticated as admin? */
+export async function isAdmin(): Promise<boolean> {
+  const token = (await cookies()).get(SESSION_COOKIE)?.value
+  return verifyToken(token)
 }
 
 export function verifyToken(token?: string | null): boolean {

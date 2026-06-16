@@ -14,7 +14,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations("Projects")
-  const projects = getProjects(await getLocale())
+  const projects = await getProjects(await getLocale())
 
   return (
     <main id="main-content" className="min-h-screen bg-background">

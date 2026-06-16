@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl"
 import { Eye, Pencil, Save, Trash2, X } from "lucide-react"
 import { useRouter } from "@/i18n/navigation"
 import Markdown from "@/components/docs/markdown"
-import { saveDoc, deleteDoc, type Doc } from "@/lib/docs-store"
+import { createDoc, updateDoc, removeDoc } from "@/lib/docs-api"
+import type { Doc } from "@/lib/docs"
 
 const field =
   "w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -18,22 +19,39 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
   const [tags, setTags] = useState(initial?.tags.join(", ") ?? "")
   const [content, setContent] = useState(initial?.content ?? "# New document\n\nStart writing in **Markdown**…")
   const [mobileView, setMobileView] = useState<"write" | "preview">("write")
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const onSave = () => {
-    const slug = saveDoc({
-      slug: initial?.slug,
+  const onSave = async () => {
+    setSaving(true)
+    setError(null)
+    const input = {
       title,
       summary,
-      tags: tags.split(",").map((t) => t.trim()).filter(Boolean),
+      tags: tags.split(",").map((s) => s.trim()).filter(Boolean),
       content,
-    })
-    router.push(`/docs/${slug}`)
+    }
+    try {
+      const slug = initial ? await updateDoc(initial.slug, input) : await createDoc(input)
+      router.push(`/docs/${slug}`)
+      router.refresh()
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Failed to save")
+      setSaving(false)
+    }
   }
 
-  const onDelete = () => {
-    if (initial && confirm(t("confirmDelete"))) {
-      deleteDoc(initial.slug)
+  const onDelete = async () => {
+    if (!initial || !confirm(t("confirmDelete"))) return
+    setSaving(true)
+    setError(null)
+    try {
+      await removeDoc(initial.slug)
       router.push("/docs")
+      router.refresh()
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Failed to delete")
+      setSaving(false)
     }
   }
 
@@ -49,7 +67,8 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
             <button
               type="button"
               onClick={onDelete}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-destructive transition-colors hover:border-destructive/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              disabled={saving}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-destructive transition-colors hover:border-destructive/50 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Trash2 className="h-4 w-4" />
               {t("delete")}
@@ -66,7 +85,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
           <button
             type="button"
             onClick={onSave}
-            disabled={!title.trim()}
+            disabled={!title.trim() || saving}
             className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-[filter] hover:brightness-110 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Save className="h-4 w-4" />
@@ -74,6 +93,12 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
           </button>
         </div>
       </div>
+
+      {error && (
+        <p role="alert" className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-2.5 text-sm text-destructive">
+          {error}
+        </p>
+      )}
 
       {/* Meta */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

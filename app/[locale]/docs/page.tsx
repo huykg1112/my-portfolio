@@ -6,6 +6,8 @@ import Header from "@/components/header"
 import SectionHeading from "@/components/section-heading"
 import DocsList from "@/components/docs/docs-list"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Docs",
   description: "Study notes and technical write-ups by Tran Hoang Huy, rendered from Markdown.",

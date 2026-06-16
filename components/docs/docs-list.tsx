@@ -1,15 +1,13 @@
-"use client"
-
+import { getLocale, getTranslations } from "next-intl/server"
 import { FileText } from "lucide-react"
-import { useLocale, useTranslations } from "next-intl"
 import { Link } from "@/i18n/navigation"
-import { useDocs } from "@/lib/docs-store"
+import { getDocs } from "@/lib/docs"
 
-export default function DocsList() {
-  const t = useTranslations("Docs")
-  const locale = useLocale()
+export default async function DocsList() {
+  const t = await getTranslations("Docs")
+  const locale = await getLocale()
+  const docs = await getDocs()
   const fmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" })
-  const docs = useDocs()
 
   if (docs.length === 0) {
     return (
@@ -30,7 +28,7 @@ export default function DocsList() {
         >
           <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
             <FileText className="h-4 w-4 text-primary" />
-            <time className="tnum" dateTime={new Date(doc.updatedAt).toISOString()}>
+            <time className="tnum" dateTime={doc.updatedAt.toISOString()}>
               {fmt.format(doc.updatedAt)}
             </time>
           </div>
@@ -40,9 +38,9 @@ export default function DocsList() {
           {doc.summary && <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{doc.summary}</p>}
           {doc.tags.length > 0 && (
             <ul className="mt-4 flex flex-wrap gap-1.5">
-              {doc.tags.map((t) => (
-                <li key={t} className="rounded-md border border-border px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
-                  {t}
+              {doc.tags.map((tag) => (
+                <li key={tag} className="rounded-md border border-border px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+                  {tag}
                 </li>
               ))}
             </ul>

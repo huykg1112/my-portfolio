@@ -2,10 +2,11 @@ import Image from "next/image"
 import { getTranslations } from "next-intl/server"
 import Reveal from "@/components/reveal"
 import SectionHeading from "@/components/section-heading"
-import { skillGroups } from "@/lib/content"
+import { getSkillGroups } from "@/lib/content"
 
 export default async function TechStack() {
   const t = await getTranslations("Home")
+  const skillGroups = await getSkillGroups()
 
   return (
     <section id="stack" className="container-page py-20 sm:py-28">

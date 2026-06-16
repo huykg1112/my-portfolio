@@ -9,7 +9,7 @@ import { getFeaturedProjects } from "@/lib/content"
 export default async function FeaturedProjects() {
   const t = await getTranslations("Home")
   const locale = await getLocale()
-  const featured = getFeaturedProjects(locale)
+  const featured = await getFeaturedProjects(locale)
 
   return (
     <section id="work" className="container-page py-20 sm:py-28">

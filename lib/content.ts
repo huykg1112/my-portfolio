@@ -1,11 +1,41 @@
+import { prisma } from "./prisma"
+
 /**
- * Typed mock content layer (localized).
- * Swap these for CMS/DB calls later — the UI only depends on the resolved types.
+ * Content layer. Reads from the database; falls back to the in-memory SEED
+ * (used at build time with no DB, and as the source for `prisma db seed`).
  */
 
 type L = { en: string; vi: string }
 const pick = (v: L, locale: string) => (locale === "vi" ? v.vi : v.en)
 
+// ─── Resolved types (what the UI consumes) ──────────────────────────────────
+export type Project = {
+  slug: string
+  title: string
+  subtitle: string
+  description: string
+  tech: string[]
+  tags: string[]
+  year: string
+  role?: string
+  company?: string
+  links: { demo?: string; repo?: string }
+  featured: boolean
+}
+
+export type Experience = {
+  company: string
+  role: string
+  period: string
+  description: string
+  tech: string[]
+  link?: string
+}
+
+export type Skill = { name: string; icon: string }
+export type SkillGroup = { category: string; items: Skill[] }
+
+// ─── Raw localized seed types ────────────────────────────────────────────────
 type ProjectRaw = {
   slug: string
   title: string
@@ -20,11 +50,6 @@ type ProjectRaw = {
   featured: boolean
 }
 
-export type Project = Omit<ProjectRaw, "subtitle" | "description"> & {
-  subtitle: string
-  description: string
-}
-
 type ExperienceRaw = {
   company: string
   role: string
@@ -34,17 +59,12 @@ type ExperienceRaw = {
   link?: string
 }
 
-export type Experience = Omit<ExperienceRaw, "period" | "description"> & {
-  period: string
-  description: string
-}
-
-export type Skill = { name: string; icon: string }
-export type SkillGroup = { category: string; items: Skill[] }
+type SkillRaw = { name: string; icon: string; category: string }
 
 const CDN = "https://res.cloudinary.com/dq8qq2zed/image/upload"
+export const SKILL_CATEGORY_ORDER = ["Frontend", "Backend & Data", "Tools & Platform"]
 
-const PROJECTS: ProjectRaw[] = [
+export const SEED_PROJECTS: ProjectRaw[] = [
   {
     slug: "devosecare-dashboard",
     title: "DevoseCare Dashboard",
@@ -143,7 +163,7 @@ const PROJECTS: ProjectRaw[] = [
   },
 ]
 
-const EXPERIENCES: ExperienceRaw[] = [
+export const SEED_EXPERIENCES: ExperienceRaw[] = [
   {
     company: "TekNix Technology Corporation",
     role: "Frontend Intern",
@@ -179,42 +199,137 @@ const EXPERIENCES: ExperienceRaw[] = [
   },
 ]
 
-export function getProjects(locale: string): Project[] {
-  return PROJECTS.map((p) => ({ ...p, subtitle: pick(p.subtitle, locale), description: pick(p.description, locale) }))
-}
-
-export function getFeaturedProjects(locale: string): Project[] {
-  return getProjects(locale).filter((p) => p.featured)
-}
-
-export function getExperiences(locale: string): Experience[] {
-  return EXPERIENCES.map((e) => ({ ...e, period: pick(e.period, locale), description: pick(e.description, locale) }))
-}
-
-export const skillGroups: SkillGroup[] = [
-  {
-    category: "Frontend",
-    items: [
-      { name: "ReactJS", icon: `${CDN}/v1762912715/React-icon_aotcdf.png` },
-      { name: "Next.js", icon: `${CDN}/v1762912714/nextjs_icon_myecuu.png` },
-      { name: "TypeScript", icon: `${CDN}/v1762912715/Typescript_icon_mirpqm.png` },
-      { name: "Tailwind CSS", icon: `${CDN}/v1762914096/tailwind_icon_dunczr.svg` },
-    ],
-  },
-  {
-    category: "Backend & Data",
-    items: [
-      { name: "NestJS", icon: `${CDN}/v1762913912/NestJS_icon_awrwgu.png` },
-      { name: "PostgreSQL", icon: `${CDN}/v1762912715/Postgresql_icon_drdedp.png` },
-      { name: "GraphQL", icon: `${CDN}/v1762912715/GraphQL_icon_sntg2p.png` },
-      { name: "REST APIs", icon: `${CDN}/v1762912715/rest-api-icon_lupkys.png` },
-    ],
-  },
-  {
-    category: "Tools & Platform",
-    items: [
-      { name: "Git & GitHub", icon: `${CDN}/v1762912715/github_icon_o8h8k9.png` },
-      { name: "WordPress", icon: `${CDN}/v1762912716/wordpress-icon_ewbqi5.png` },
-    ],
-  },
+export const SEED_SKILLS: SkillRaw[] = [
+  { name: "ReactJS", icon: `${CDN}/v1762912715/React-icon_aotcdf.png`, category: "Frontend" },
+  { name: "Next.js", icon: `${CDN}/v1762912714/nextjs_icon_myecuu.png`, category: "Frontend" },
+  { name: "TypeScript", icon: `${CDN}/v1762912715/Typescript_icon_mirpqm.png`, category: "Frontend" },
+  { name: "Tailwind CSS", icon: `${CDN}/v1762914096/tailwind_icon_dunczr.svg`, category: "Frontend" },
+  { name: "NestJS", icon: `${CDN}/v1762913912/NestJS_icon_awrwgu.png`, category: "Backend & Data" },
+  { name: "PostgreSQL", icon: `${CDN}/v1762912715/Postgresql_icon_drdedp.png`, category: "Backend & Data" },
+  { name: "GraphQL", icon: `${CDN}/v1762912715/GraphQL_icon_sntg2p.png`, category: "Backend & Data" },
+  { name: "REST APIs", icon: `${CDN}/v1762912715/rest-api-icon_lupkys.png`, category: "Backend & Data" },
+  { name: "Git & GitHub", icon: `${CDN}/v1762912715/github_icon_o8h8k9.png`, category: "Tools & Platform" },
+  { name: "WordPress", icon: `${CDN}/v1762912716/wordpress-icon_ewbqi5.png`, category: "Tools & Platform" },
 ]
+
+// ─── Seed-row mappers (used by prisma/seed.ts) ───────────────────────────────
+export function projectRow(p: ProjectRaw, order: number) {
+  return {
+    slug: p.slug,
+    title: p.title,
+    subtitleEn: p.subtitle.en,
+    subtitleVi: p.subtitle.vi,
+    descriptionEn: p.description.en,
+    descriptionVi: p.description.vi,
+    tech: p.tech,
+    tags: p.tags,
+    year: p.year,
+    role: p.role ?? null,
+    company: p.company ?? null,
+    demoUrl: p.links.demo ?? null,
+    repoUrl: p.links.repo ?? null,
+    featured: p.featured,
+    order,
+  }
+}
+
+export function experienceRow(e: ExperienceRaw, order: number) {
+  return {
+    company: e.company,
+    role: e.role,
+    periodEn: e.period.en,
+    periodVi: e.period.vi,
+    descriptionEn: e.description.en,
+    descriptionVi: e.description.vi,
+    tech: e.tech,
+    link: e.link ?? null,
+    order,
+  }
+}
+
+// ─── DB-backed getters with SEED fallback ────────────────────────────────────
+function resolveSeedProjects(locale: string): Project[] {
+  return SEED_PROJECTS.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    subtitle: pick(p.subtitle, locale),
+    description: pick(p.description, locale),
+    tech: p.tech,
+    tags: p.tags,
+    year: p.year,
+    role: p.role,
+    company: p.company,
+    links: p.links,
+    featured: p.featured,
+  }))
+}
+
+export async function getProjects(locale: string): Promise<Project[]> {
+  try {
+    const rows = await prisma.project.findMany({ orderBy: { order: "asc" } })
+    if (rows.length === 0) return resolveSeedProjects(locale)
+    return rows.map((r) => ({
+      slug: r.slug,
+      title: r.title,
+      subtitle: locale === "vi" ? r.subtitleVi : r.subtitleEn,
+      description: locale === "vi" ? r.descriptionVi : r.descriptionEn,
+      tech: r.tech,
+      tags: r.tags,
+      year: r.year,
+      role: r.role ?? undefined,
+      company: r.company ?? undefined,
+      links: { demo: r.demoUrl ?? undefined, repo: r.repoUrl ?? undefined },
+      featured: r.featured,
+    }))
+  } catch {
+    return resolveSeedProjects(locale)
+  }
+}
+
+export async function getFeaturedProjects(locale: string): Promise<Project[]> {
+  return (await getProjects(locale)).filter((p) => p.featured)
+}
+
+export async function getExperiences(locale: string): Promise<Experience[]> {
+  try {
+    const rows = await prisma.experience.findMany({ orderBy: { order: "asc" } })
+    if (rows.length === 0) throw new Error("empty")
+    return rows.map((r) => ({
+      company: r.company,
+      role: r.role,
+      period: locale === "vi" ? r.periodVi : r.periodEn,
+      description: locale === "vi" ? r.descriptionVi : r.descriptionEn,
+      tech: r.tech,
+      link: r.link ?? undefined,
+    }))
+  } catch {
+    return SEED_EXPERIENCES.map((e) => ({
+      company: e.company,
+      role: e.role,
+      period: pick(e.period, locale),
+      description: pick(e.description, locale),
+      tech: e.tech,
+      link: e.link,
+    }))
+  }
+}
+
+function groupSkills(items: SkillRaw[]): SkillGroup[] {
+  const byCat = new Map<string, Skill[]>()
+  for (const s of items) {
+    if (!byCat.has(s.category)) byCat.set(s.category, [])
+    byCat.get(s.category)!.push({ name: s.name, icon: s.icon })
+  }
+  const ordered = [...SKILL_CATEGORY_ORDER, ...[...byCat.keys()].filter((c) => !SKILL_CATEGORY_ORDER.includes(c))]
+  return ordered.filter((c) => byCat.has(c)).map((category) => ({ category, items: byCat.get(category)! }))
+}
+
+export async function getSkillGroups(): Promise<SkillGroup[]> {
+  try {
+    const rows = await prisma.skill.findMany({ orderBy: { order: "asc" } })
+    if (rows.length === 0) return groupSkills(SEED_SKILLS)
+    return groupSkills(rows.map((r) => ({ name: r.name, icon: r.icon, category: r.category })))
+  } catch {
+    return groupSkills(SEED_SKILLS)
+  }
+}
