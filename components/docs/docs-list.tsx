@@ -1,19 +1,21 @@
 "use client"
 
-import Link from "next/link"
 import { FileText } from "lucide-react"
+import { useLocale, useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 import { useDocs } from "@/lib/docs-store"
 
-const fmt = new Intl.DateTimeFormat("en-US", { day: "numeric", month: "short", year: "numeric" })
-
 export default function DocsList() {
+  const t = useTranslations("Docs")
+  const locale = useLocale()
+  const fmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" })
   const docs = useDocs()
 
   if (docs.length === 0) {
     return (
       <div className="rounded-xl border border-dashed border-border bg-card p-12 text-center">
         <FileText className="mx-auto h-8 w-8 text-muted-foreground" />
-        <p className="mt-3 text-sm text-muted-foreground">No documents yet.</p>
+        <p className="mt-3 text-sm text-muted-foreground">{t("empty")}</p>
       </div>
     )
   }

@@ -1,9 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { ArrowUpRight, Mail } from "lucide-react"
+import { Link } from "@/i18n/navigation"
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons"
 
 const AVATAR =
@@ -18,6 +19,7 @@ const SOCIALS = [
 ]
 
 export default function Hero() {
+  const t = useTranslations("Hero")
   const reduce = useReducedMotion()
   const rise = (delay: number) => ({
     initial: { opacity: 0, y: reduce ? 0 : 16 },
@@ -38,7 +40,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            Available for full-time roles
+            {t("availability")}
           </motion.div>
 
           <motion.h1
@@ -48,36 +50,29 @@ export default function Hero() {
             Tran Hoang Huy
           </motion.h1>
 
-          <motion.p
-            {...rise(0.1)}
-            className="mt-3 text-xl font-medium text-foreground/90 sm:text-2xl"
-          >
-            Frontend Developer building fast, accessible web apps with{" "}
-            <span className="text-primary">React</span> &amp;{" "}
-            <span className="text-primary">Next.js</span>.
+          <motion.p {...rise(0.1)} className="mt-3 text-xl font-medium text-foreground/90 sm:text-2xl">
+            {t.rich("lead", { hl: (chunks) => <span className="text-primary">{chunks}</span> })}
           </motion.p>
 
           <motion.p {...rise(0.15)} className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Final-year Software Engineering student at Can Tho University (GPA 3.58).
-            Currently building dental-clinic platforms at TekNix. I care about performance,
-            clean interfaces, and shipping real products.
+            {t("intro")}
           </motion.p>
 
           {/* CTAs */}
           <motion.div {...rise(0.2)} className="mt-8 flex flex-wrap items-center gap-3">
             <Link
-              href="/real-projects"
+              href="/projects"
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              View projects
+              {t("viewProjects")}
               <ArrowUpRight className="h-4 w-4" />
             </Link>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Get in touch
-            </a>
+              {t("getInTouch")}
+            </Link>
 
             <div className="ml-1 flex items-center gap-1">
               {SOCIALS.map(({ href, label, Icon }) => (

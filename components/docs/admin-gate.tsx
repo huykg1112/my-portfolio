@@ -1,10 +1,12 @@
 "use client"
 
 import { useState, type ReactNode } from "react"
+import { useTranslations } from "next-intl"
 import { Lock, Loader2 } from "lucide-react"
 import { useAdmin } from "@/lib/use-admin"
 
 export default function AdminGate({ children }: { children: ReactNode }) {
+  const t = useTranslations("Docs")
   const { authed, loading, login } = useAdmin()
   const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(null)
@@ -25,7 +27,7 @@ export default function AdminGate({ children }: { children: ReactNode }) {
     setSubmitting(true)
     setError(null)
     const ok = await login(password)
-    if (!ok) setError("Wrong password. Try again.")
+    if (!ok) setError(t("wrongPassword"))
     setSubmitting(false)
   }
 
@@ -34,18 +36,18 @@ export default function AdminGate({ children }: { children: ReactNode }) {
       <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background text-primary">
         <Lock className="h-5 w-5" />
       </span>
-      <h2 className="mt-4 text-lg font-semibold text-foreground">Admin only</h2>
-      <p className="mt-1 text-sm text-muted-foreground">Enter the password to write or edit docs.</p>
+      <h2 className="mt-4 text-lg font-semibold text-foreground">{t("adminOnly")}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">{t("adminDesc")}</p>
 
       <form onSubmit={onSubmit} className="mt-6 space-y-3 text-left">
-        <label htmlFor="admin-password" className="sr-only">Password</label>
+        <label htmlFor="admin-password" className="sr-only">{t("password")}</label>
         <input
           id="admin-password"
           type="password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder={t("password")}
           aria-invalid={!!error}
           className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         />
@@ -56,7 +58,7 @@ export default function AdminGate({ children }: { children: ReactNode }) {
           className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-[filter] hover:brightness-110 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-          Unlock
+          {t("unlock")}
         </button>
       </form>
     </div>

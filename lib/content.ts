@@ -1,13 +1,16 @@
 /**
- * Typed mock content layer.
- * Swap these exports for CMS/DB calls later — the UI only depends on the types.
+ * Typed mock content layer (localized).
+ * Swap these for CMS/DB calls later — the UI only depends on the resolved types.
  */
 
-export type Project = {
+type L = { en: string; vi: string }
+const pick = (v: L, locale: string) => (locale === "vi" ? v.vi : v.en)
+
+type ProjectRaw = {
   slug: string
   title: string
-  subtitle: string
-  description: string
+  subtitle: L
+  description: L
   tech: string[]
   tags: string[]
   year: string
@@ -17,13 +20,23 @@ export type Project = {
   featured: boolean
 }
 
-export type Experience = {
+export type Project = Omit<ProjectRaw, "subtitle" | "description"> & {
+  subtitle: string
+  description: string
+}
+
+type ExperienceRaw = {
   company: string
   role: string
-  period: string
-  description: string
+  period: L
+  description: L
   tech: string[]
   link?: string
+}
+
+export type Experience = Omit<ExperienceRaw, "period" | "description"> & {
+  period: string
+  description: string
 }
 
 export type Skill = { name: string; icon: string }
@@ -31,13 +44,15 @@ export type SkillGroup = { category: string; items: Skill[] }
 
 const CDN = "https://res.cloudinary.com/dq8qq2zed/image/upload"
 
-export const projects: Project[] = [
+const PROJECTS: ProjectRaw[] = [
   {
     slug: "devosecare-dashboard",
     title: "DevoseCare Dashboard",
-    subtitle: "TekNix · Internal product",
-    description:
-      "Internal operations dashboard for a medical center: Kanban appointment board with drag-and-drop, customer management, a CMS module and role-based permissions. Shipped in under four weeks.",
+    subtitle: { en: "TekNix · Internal product", vi: "TekNix · Sản phẩm nội bộ" },
+    description: {
+      en: "Internal operations dashboard for a medical center: Kanban appointment board with drag-and-drop, customer management, a CMS module and role-based permissions. Shipped in under four weeks.",
+      vi: "Dashboard vận hành nội bộ cho một trung tâm y tế: bảng lịch hẹn Kanban kéo-thả, quản lý khách hàng, module CMS và phân quyền theo vai trò. Hoàn thành trong chưa đầy bốn tuần.",
+    },
     tech: ["ReactJS", "Vite", "Tailwind CSS", "Shadcn UI", "Zustand", "dnd-kit"],
     tags: ["Dashboard", "Drag & drop"],
     year: "2026",
@@ -49,9 +64,11 @@ export const projects: Project[] = [
   {
     slug: "ecommerce-farm",
     title: "E-commerce Farm Platform",
-    subtitle: "Bachelor's thesis",
-    description:
-      "AI-powered agricultural e-commerce platform with crop-disease diagnosis (PhoBERT fine-tune, ~97% accuracy across 350+ diseases). Web with Next.js, mobile with Flutter, backend on NestJS + PostgreSQL.",
+    subtitle: { en: "Bachelor's thesis", vi: "Luận văn tốt nghiệp" },
+    description: {
+      en: "AI-powered agricultural e-commerce platform with crop-disease diagnosis (PhoBERT fine-tune, ~97% accuracy across 350+ diseases). Web with Next.js, mobile with Flutter, backend on NestJS + PostgreSQL.",
+      vi: "Nền tảng thương mại điện tử nông sản tích hợp AI chẩn đoán bệnh cây (PhoBERT fine-tune, ~97% độ chính xác trên 350+ loại bệnh). Web bằng Next.js, mobile bằng Flutter, backend NestJS + PostgreSQL.",
+    },
     tech: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Flutter"],
     tags: ["AI", "E-commerce", "Full-stack"],
     year: "2025",
@@ -63,9 +80,11 @@ export const projects: Project[] = [
   {
     slug: "autotms",
     title: "AutoTMS — Transport Management",
-    subtitle: "Green Space Solution",
-    description:
-      "Web-based transport management system: group, vehicle and maintenance modules. Built the frontend and integrated GraphQL services on a NestJS + Strapi backend.",
+    subtitle: { en: "Green Space Solution", vi: "Green Space Solution" },
+    description: {
+      en: "Web-based transport management system: group, vehicle and maintenance modules. Built the frontend and integrated GraphQL services on a NestJS + Strapi backend.",
+      vi: "Hệ thống quản lý vận tải trên web: module nhóm, phương tiện và bảo trì. Mình xây frontend và tích hợp các service GraphQL trên backend NestJS + Strapi.",
+    },
     tech: ["Next.js", "Hero UI", "NestJS", "Strapi", "Prisma", "GraphQL"],
     tags: ["Enterprise", "Full-stack"],
     year: "2025",
@@ -77,9 +96,11 @@ export const projects: Project[] = [
   {
     slug: "pago-dashboard",
     title: "Pago Dashboard",
-    subtitle: "UTA · Internal product",
-    description:
-      "Internal management dashboard with an AI-based pest-diagnosis feature (PhoBERT, ~97% accuracy). Optimised UI/UX and integrated RESTful APIs.",
+    subtitle: { en: "UTA · Internal product", vi: "UTA · Sản phẩm nội bộ" },
+    description: {
+      en: "Internal management dashboard with an AI-based pest-diagnosis feature (PhoBERT, ~97% accuracy). Optimised UI/UX and integrated RESTful APIs.",
+      vi: "Dashboard quản lý nội bộ với tính năng chẩn đoán sâu bệnh bằng AI (PhoBERT, ~97% độ chính xác). Tối ưu UI/UX và tích hợp REST API.",
+    },
     tech: ["ReactJS", "NestJS", "REST API", "Tailwind CSS", "PhoBERT"],
     tags: ["AI", "Dashboard"],
     year: "2024",
@@ -91,9 +112,11 @@ export const projects: Project[] = [
   {
     slug: "patient-honey",
     title: "Patient Honey — Clinic Websites",
-    subtitle: "TekNix · 60+ sites",
-    description:
-      "Maintained and built 60+ international dental-clinic websites: landing pages, performance and SEO optimisation, and CMS-driven content management.",
+    subtitle: { en: "TekNix · 60+ sites", vi: "TekNix · 60+ website" },
+    description: {
+      en: "Maintained and built 60+ international dental-clinic websites: landing pages, performance and SEO optimisation, and CMS-driven content management.",
+      vi: "Bảo trì và xây 60+ website phòng khám nha khoa quốc tế: trang landing, tối ưu hiệu năng và SEO, quản lý nội dung qua CMS.",
+    },
     tech: ["Next.js", "WordPress", "TanaCMS", "Framer", "SEO"],
     tags: ["Web", "SEO"],
     year: "2025",
@@ -105,9 +128,11 @@ export const projects: Project[] = [
   {
     slug: "homestay-booking",
     title: "Homestay Booking",
-    subtitle: "Group project",
-    description:
-      "Full-stack homestay booking platform with search, filtering, booking flows and real-time updates for three roles: client, landlord and admin.",
+    subtitle: { en: "Group project", vi: "Dự án nhóm" },
+    description: {
+      en: "Full-stack homestay booking platform with search, filtering, booking flows and real-time updates for three roles: client, landlord and admin.",
+      vi: "Nền tảng đặt homestay full-stack với tìm kiếm, lọc, luồng đặt phòng và cập nhật thời gian thực cho ba vai trò: khách, chủ nhà và admin.",
+    },
     tech: ["ReactJS", "Tailwind CSS", "MUI", "REST API", "PostgreSQL"],
     tags: ["Booking", "Full-stack"],
     year: "2024",
@@ -118,35 +143,53 @@ export const projects: Project[] = [
   },
 ]
 
-export const experiences: Experience[] = [
+const EXPERIENCES: ExperienceRaw[] = [
   {
     company: "TekNix Technology Corporation",
     role: "Frontend Intern",
-    period: "Sep 2025 — Present",
-    description:
-      "Building and maintaining responsive websites for ~60 international dental clinics with React, Next.js and WordPress. Integrating REST APIs and crafting interactive UI with Framer.",
+    period: { en: "Sep 2025 — Present", vi: "09/2025 — Hiện tại" },
+    description: {
+      en: "Building and maintaining responsive websites for ~60 international dental clinics with React, Next.js and WordPress. Integrating REST APIs and crafting interactive UI with Framer.",
+      vi: "Xây dựng và bảo trì website responsive cho ~60 phòng khám nha khoa quốc tế với React, Next.js và WordPress. Tích hợp REST API và làm UI tương tác với Framer.",
+    },
     tech: ["ReactJS", "Next.js", "WordPress", "Tailwind CSS", "Framer", "SEO"],
     link: "https://www.teknix.vn/",
   },
   {
     company: "Green Space Solution JSC",
     role: "Full-stack Intern",
-    period: "Jun 2025 — Aug 2025",
-    description:
-      "Designed and optimised the AutoTMS transport-management frontend. Integrated components with NestJS, Strapi, Prisma and GraphQL services; took part in code reviews.",
+    period: { en: "Jun 2025 — Aug 2025", vi: "06/2025 — 08/2025" },
+    description: {
+      en: "Designed and optimised the AutoTMS transport-management frontend. Integrated components with NestJS, Strapi, Prisma and GraphQL services; took part in code reviews.",
+      vi: "Thiết kế và tối ưu frontend hệ thống quản lý vận tải AutoTMS. Tích hợp component với các service NestJS, Strapi, Prisma và GraphQL; tham gia review code.",
+    },
     tech: ["Next.js", "Hero UI", "NestJS", "Strapi", "Prisma", "GraphQL"],
     link: "https://www.autotms.vn/",
   },
   {
     company: "UTA Co., Ltd",
     role: "IT Intern",
-    period: "Jun 2024 — Apr 2025",
-    description:
-      "Built frontends for internal web apps and an AI-based pest-diagnosis feature (PhoBERT, ~97% accuracy). Improved UI performance and cross-device responsiveness.",
+    period: { en: "Jun 2024 — Apr 2025", vi: "06/2024 — 04/2025" },
+    description: {
+      en: "Built frontends for internal web apps and an AI-based pest-diagnosis feature (PhoBERT, ~97% accuracy). Improved UI performance and cross-device responsiveness.",
+      vi: "Xây frontend cho các ứng dụng web nội bộ và tính năng chẩn đoán sâu bệnh bằng AI (PhoBERT, ~97% độ chính xác). Cải thiện hiệu năng UI và khả năng responsive đa thiết bị.",
+    },
     tech: ["ReactJS", "NestJS", "REST API", "PhoBERT", "Tailwind CSS"],
     link: "https://utasolution.com",
   },
 ]
+
+export function getProjects(locale: string): Project[] {
+  return PROJECTS.map((p) => ({ ...p, subtitle: pick(p.subtitle, locale), description: pick(p.description, locale) }))
+}
+
+export function getFeaturedProjects(locale: string): Project[] {
+  return getProjects(locale).filter((p) => p.featured)
+}
+
+export function getExperiences(locale: string): Experience[] {
+  return EXPERIENCES.map((e) => ({ ...e, period: pick(e.period, locale), description: pick(e.description, locale) }))
+}
 
 export const skillGroups: SkillGroup[] = [
   {
@@ -175,8 +218,3 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ]
-
-/** Flat list for compact marquees / home strip. */
-export const allSkills: Skill[] = skillGroups.flatMap((g) => g.items)
-
-export const featuredProjects = projects.filter((p) => p.featured)

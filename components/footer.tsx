@@ -1,12 +1,14 @@
-import Link from "next/link"
+import { getTranslations } from "next-intl/server"
 import { Mail, Phone } from "lucide-react"
+import { Link } from "@/i18n/navigation"
 import { FacebookIcon, GithubIcon, LinkedinIcon } from "@/components/brand-icons"
 
 const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/real-projects", label: "Projects" },
-]
+  { href: "/", key: "home" },
+  { href: "/about", key: "about" },
+  { href: "/projects", key: "projects" },
+  { href: "/docs", key: "docs" },
+] as const
 
 const SOCIALS = [
   { href: "https://github.com/huykg1112", label: "GitHub", Icon: GithubIcon },
@@ -15,7 +17,8 @@ const SOCIALS = [
   { href: "tel:+84334114244", label: "Phone", Icon: Phone },
 ]
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("Nav")
   const year = new Date().getFullYear()
 
   return (
@@ -23,17 +26,17 @@ export default function Footer() {
       <div className="container-page flex flex-col items-center justify-between gap-6 py-10 md:flex-row">
         <div className="text-center md:text-left">
           <div className="text-sm font-semibold text-foreground">Tran Hoang Huy</div>
-          <div className="text-sm text-muted-foreground">Frontend Developer · Designed &amp; built by me · {year}</div>
+          <div className="text-sm text-muted-foreground">Frontend Developer · {year}</div>
         </div>
 
-        <nav className="flex items-center gap-1">
+        <nav className="flex flex-wrap items-center justify-center gap-1">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              {item.label}
+              {t(item.key)}
             </Link>
           ))}
           <a

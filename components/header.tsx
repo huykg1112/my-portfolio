@@ -1,18 +1,28 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { Download, Menu, X } from "lucide-react"
-import navLinks from "@/data/navigation.json"
+import { Link, usePathname } from "@/i18n/navigation"
 import ThemeToggle from "@/components/theme-toggle"
+import LocaleSwitcher from "@/components/locale-switcher"
 
 const CV_HREF = "/Tran-Hoang-Huy-SoftwareEngineer.pdf"
 const LOGO = "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762854609/logo-portfolio_asrih8.png"
 
+const NAV = [
+  { href: "/", key: "home" },
+  { href: "/about", key: "about" },
+  { href: "/projects", key: "projects" },
+  { href: "/docs", key: "docs" },
+  { href: "/contact", key: "contact" },
+] as const
+
 export default function Header() {
+  const t = useTranslations("Nav")
+  const th = useTranslations("Header")
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -24,7 +34,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
     return () => {
@@ -32,25 +41,22 @@ export default function Header() {
     }
   }, [open])
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href)
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href))
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled
-          ? "border-border bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-background/0"
+        scrolled ? "border-border bg-background/80 backdrop-blur-md" : "border-transparent bg-background/0"
       }`}
     >
       <nav className="container-page flex h-16 items-center justify-between">
-        <Link href="/" aria-label="Home" className="flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <Link href="/" aria-label={t("home")} className="flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
           <Image src={LOGO} alt="Tran Hoang Huy logo" width={44} height={44} className="object-contain" priority />
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 sm:flex">
-          {navLinks.map((link) => {
+        <div className="hidden items-center gap-1 md:flex">
+          {NAV.map((link) => {
             const active = isActive(link.href)
             return (
               <Link
@@ -61,7 +67,7 @@ export default function Header() {
                   active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
                 {active && (
                   <motion.span
                     layoutId="nav-underline"
@@ -75,23 +81,23 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+          <LocaleSwitcher />
           <ThemeToggle />
           <a
             href={CV_HREF}
             download
-            className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+            className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-[filter,transform] hover:brightness-110 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:inline-flex"
           >
             <Download className="h-4 w-4" />
-            Resume
+            {th("resume")}
           </a>
 
-          {/* Mobile trigger */}
           <button
             type="button"
-            aria-label="Open menu"
+            aria-label={th("openMenu")}
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -103,24 +109,24 @@ export default function Header() {
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 z-40 bg-foreground/20 backdrop-blur-sm sm:hidden"
+              className="fixed inset-0 z-40 bg-foreground/20 backdrop-blur-sm md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
             <motion.aside
-              className="fixed right-0 top-0 z-50 flex h-dvh w-72 flex-col gap-6 border-l border-border bg-card p-6 shadow-lg sm:hidden"
+              className="fixed right-0 top-0 z-50 flex h-dvh w-72 flex-col gap-6 border-l border-border bg-card p-6 shadow-lg md:hidden"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-muted-foreground">Menu</span>
+                <span className="text-sm font-semibold text-muted-foreground">{th("menu")}</span>
                 <button
                   type="button"
-                  aria-label="Close menu"
+                  aria-label={th("closeMenu")}
                   onClick={() => setOpen(false)}
                   className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
@@ -129,7 +135,7 @@ export default function Header() {
               </div>
 
               <nav className="flex flex-col gap-1">
-                {navLinks.map((link) => {
+                {NAV.map((link) => {
                   const active = isActive(link.href)
                   return (
                     <Link
@@ -138,12 +144,10 @@ export default function Header() {
                       onClick={() => setOpen(false)}
                       aria-current={active ? "page" : undefined}
                       className={`rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
-                        active
-                          ? "bg-primary/10 text-primary"
-                          : "text-foreground hover:bg-secondary"
+                        active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-secondary"
                       }`}
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   )
                 })}
@@ -155,7 +159,7 @@ export default function Header() {
                 className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
               >
                 <Download className="h-4 w-4" />
-                Download Resume
+                {th("resume")}
               </a>
             </motion.aside>
           </>

@@ -1,8 +1,10 @@
+import { useTranslations } from "next-intl"
 import { ArrowUpRight, ExternalLink } from "lucide-react"
 import { GithubIcon } from "@/components/brand-icons"
 import type { Project } from "@/lib/content"
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const t = useTranslations("Card")
   const { title, subtitle, description, tech, tags, year, links } = project
   const shown = tech.slice(0, 4)
   const extra = tech.length - shown.length
@@ -45,7 +47,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
             <ExternalLink className="h-4 w-4" />
-            Live demo
+            {t("liveDemo")}
           </a>
         )}
         {links.repo && (
@@ -56,13 +58,13 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
           >
             <GithubIcon className="h-4 w-4" />
-            Code
+            {t("code")}
           </a>
         )}
         {!links.demo && !links.repo && (
           <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
             <ArrowUpRight className="h-4 w-4" />
-            Private project
+            {t("private")}
           </span>
         )}
       </div>

@@ -2,10 +2,12 @@
 
 import { useMemo, useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import ProjectCard from "@/components/projects/project-card"
 import type { Project } from "@/lib/content"
 
 export default function ProjectsExplorer({ projects }: { projects: Project[] }) {
+  const t = useTranslations("Projects")
   const reduce = useReducedMotion()
   const tags = useMemo(() => {
     const set = new Set<string>()
@@ -34,7 +36,7 @@ export default function ProjectsExplorer({ projects }: { projects: Project[] }) 
                   : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
               }`}
             >
-              {tag}
+              {tag === "All" ? t("all") : tag}
             </button>
           )
         })}

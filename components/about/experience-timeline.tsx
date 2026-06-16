@@ -1,8 +1,8 @@
 import { ArrowUpRight } from "lucide-react"
 import Reveal from "@/components/reveal"
-import { experiences } from "@/lib/content"
+import type { Experience } from "@/lib/content"
 
-export default function ExperienceTimeline() {
+export default function ExperienceTimeline({ experiences }: { experiences: Experience[] }) {
   return (
     <ol className="relative ml-3 border-l border-border">
       {experiences.map((exp, i) => (

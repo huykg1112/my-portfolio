@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
 import { Eye, Pencil, Save, Trash2, X } from "lucide-react"
+import { useRouter } from "@/i18n/navigation"
 import Markdown from "@/components/docs/markdown"
 import { saveDoc, deleteDoc, type Doc } from "@/lib/docs-store"
 
@@ -10,6 +11,7 @@ const field =
   "w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
 
 export default function DocEditor({ initial }: { initial?: Doc }) {
+  const t = useTranslations("Docs")
   const router = useRouter()
   const [title, setTitle] = useState(initial?.title ?? "")
   const [summary, setSummary] = useState(initial?.summary ?? "")
@@ -29,7 +31,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
   }
 
   const onDelete = () => {
-    if (initial && confirm("Delete this document? This cannot be undone.")) {
+    if (initial && confirm(t("confirmDelete"))) {
       deleteDoc(initial.slug)
       router.push("/docs")
     }
@@ -40,7 +42,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
       {/* Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          {initial ? "Edit document" : "New document"}
+          {initial ? t("editTitle") : t("newTitle")}
         </h1>
         <div className="flex items-center gap-2">
           {initial && (
@@ -50,7 +52,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
               className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-destructive transition-colors hover:border-destructive/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <Trash2 className="h-4 w-4" />
-              Delete
+              {t("delete")}
             </button>
           )}
           <button
@@ -59,7 +61,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
             className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <X className="h-4 w-4" />
-            Cancel
+            {t("cancel")}
           </button>
           <button
             type="button"
@@ -68,17 +70,17 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
             className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-[filter] hover:brightness-110 disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Save className="h-4 w-4" />
-            Save
+            {t("save")}
           </button>
         </div>
       </div>
 
       {/* Meta */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <input className={field} placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} aria-label="Title" />
-        <input className={field} placeholder="Tags (comma separated)" value={tags} onChange={(e) => setTags(e.target.value)} aria-label="Tags" />
+        <input className={field} placeholder={t("fieldTitle")} value={title} onChange={(e) => setTitle(e.target.value)} aria-label={t("fieldTitle")} />
+        <input className={field} placeholder={t("fieldTags")} value={tags} onChange={(e) => setTags(e.target.value)} aria-label={t("fieldTags")} />
       </div>
-      <input className={field} placeholder="Short summary" value={summary} onChange={(e) => setSummary(e.target.value)} aria-label="Summary" />
+      <input className={field} placeholder={t("fieldSummary")} value={summary} onChange={(e) => setSummary(e.target.value)} aria-label={t("fieldSummary")} />
 
       {/* Mobile view switch */}
       <div className="flex gap-1 rounded-lg border border-border bg-card p-1 sm:hidden">
@@ -92,7 +94,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
             }`}
           >
             {v === "write" ? <Pencil className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            {v}
+            {v === "write" ? t("write") : t("preview")}
           </button>
         ))}
       </div>

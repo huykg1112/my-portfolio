@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { Bot, Send, Trash2, X } from "lucide-react"
 import type { ChatMessage } from "@/app/api/chat/route"
 
@@ -31,17 +32,12 @@ function renderMarkdown(text: string) {
 
 type Message = ChatMessage & { id: string }
 
-const WELCOME: Message = {
-  id: "welcome",
-  role: "assistant",
-  content:
-    "Xin chào! Mình là AI assistant của **Trần Hoàng Huy** 👋\n\nBạn có thể hỏi mình về kỹ năng, kinh nghiệm, dự án hoặc cách liên hệ với Huy nhé!",
-}
-
 export default function Chatbot() {
+  const t = useTranslations("Chatbot")
+  const welcome: Message = { id: "welcome", role: "assistant", content: t("welcome") }
   const reduce = useReducedMotion()
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([WELCOME])
+  const [messages, setMessages] = useState<Message[]>(() => [welcome])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [streamingId, setStreamingId] = useState<string | null>(null)
@@ -136,7 +132,7 @@ export default function Chatbot() {
     abortRef.current?.abort()
     setIsLoading(false)
     setStreamingId(null)
-    setMessages([WELCOME])
+    setMessages([welcome])
   }
 
   return (
@@ -160,20 +156,20 @@ export default function Chatbot() {
                 <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-card bg-emerald-500" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold leading-none text-foreground">Huy&apos;s AI Assistant</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">Powered by Gemini</p>
+                <p className="text-sm font-semibold leading-none text-foreground">{t("title")}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{t("poweredBy")}</p>
               </div>
               <button
                 onClick={handleClear}
-                aria-label="Clear chat"
-                title="Xoá cuộc trò chuyện"
+                aria-label={t("clear")}
+                title={t("clear")}
                 className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <Trash2 className="h-4 w-4" />
               </button>
               <button
                 onClick={handleClose}
-                aria-label="Close chatbot"
+                aria-label={t("close")}
                 className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <X className="h-4 w-4" />
@@ -237,10 +233,10 @@ export default function Chatbot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Nhập câu hỏi... (Enter để gửi)"
+                  placeholder={t("placeholder")}
                   rows={1}
                   disabled={isLoading}
-                  aria-label="Chat input"
+                  aria-label={t("placeholder")}
                   className="max-h-28 flex-1 resize-none bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50"
                   style={{ scrollbarWidth: "none" }}
                   onInput={(e) => {
@@ -252,13 +248,13 @@ export default function Chatbot() {
                 <button
                   onClick={sendMessage}
                   disabled={!input.trim() || isLoading}
-                  aria-label="Send message"
+                  aria-label={t("send")}
                   className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-all hover:brightness-110 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <Send className="h-4 w-4" />
                 </button>
               </div>
-              <p className="mt-1.5 text-center text-[10px] text-muted-foreground">Shift+Enter xuống dòng</p>
+              <p className="mt-1.5 text-center text-[10px] text-muted-foreground">{t("shiftEnter")}</p>
             </div>
           </motion.div>
         )}
@@ -267,7 +263,7 @@ export default function Chatbot() {
       {/* Toggle */}
       <motion.button
         onClick={() => setIsOpen((v) => !v)}
-        aria-label={isOpen ? "Đóng chatbot" : "Mở chatbot"}
+        aria-label={isOpen ? t("close") : t("open")}
         aria-expanded={isOpen}
         whileHover={reduce ? undefined : { scale: 1.06 }}
         whileTap={reduce ? undefined : { scale: 0.94 }}

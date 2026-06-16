@@ -1,16 +1,15 @@
 import Image from "next/image"
+import { getTranslations } from "next-intl/server"
 import Reveal from "@/components/reveal"
 import SectionHeading from "@/components/section-heading"
 import { skillGroups } from "@/lib/content"
 
-export default function TechStack() {
+export default async function TechStack() {
+  const t = await getTranslations("Home")
+
   return (
     <section id="stack" className="container-page py-20 sm:py-28">
-      <SectionHeading
-        eyebrow="Toolbox"
-        title="Tech I work with"
-        description="The stack I reach for to ship fast, accessible products end to end."
-      />
+      <SectionHeading eyebrow={t("stackEyebrow")} title={t("stackTitle")} description={t("stackDesc")} />
 
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
         {skillGroups.map((group, gi) => (

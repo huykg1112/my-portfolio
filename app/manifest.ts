@@ -5,10 +5,10 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Trần Hoàng Huy - Software Engineer Portfolio",
     short_name: "THH Portfolio",
     description: "Software Engineer specializing in full-stack development. Explore my portfolio, projects, and technical expertise.",
-    start_url: "/",
+    start_url: "/en",
     display: "standalone",
-    background_color: "#100e19",
-    theme_color: "#a755f0",
+    background_color: "#fbfbfd",
+    theme_color: "#4f46e5",
     orientation: "portrait-primary",
     icons: [
       {

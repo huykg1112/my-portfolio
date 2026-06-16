@@ -1,8 +1,11 @@
+import { setRequestLocale } from "next-intl/server"
 import Header from "@/components/header"
 import AdminGate from "@/components/docs/admin-gate"
 import DocEditor from "@/components/docs/doc-editor"
 
-export default function NewDocPage() {
+export default async function NewDocPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   return (
     <main id="main-content" className="min-h-screen bg-background">
       <Header />
