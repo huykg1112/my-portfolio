@@ -51,14 +51,8 @@ async function main() {
     await prisma.project.upsert({ where: { slug: row.slug }, update: row, create: row })
   }
 
-  for (let i = 0; i < SEED_SKILLS.length; i++) {
-    const s = SEED_SKILLS[i]
-    await prisma.skill.upsert({
-      where: { name: s.name },
-      update: { ...s, order: i },
-      create: { ...s, order: i },
-    })
-  }
+  await prisma.skill.deleteMany({})
+  await prisma.skill.createMany({ data: SEED_SKILLS.map((s, i) => ({ ...s, order: i })) })
 
   await prisma.experience.deleteMany({})
   await prisma.experience.createMany({ data: SEED_EXPERIENCES.map((e, i) => experienceRow(e, i)) })

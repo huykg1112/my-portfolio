@@ -17,8 +17,8 @@
   },
   "Hero": {
     "availability": "Available for full-time roles",
-    "lead": "Frontend Developer building fast, accessible web apps with <hl>React</hl> & <hl>Next.js</hl>.",
-    "intro": "Final-year Software Engineering student at Can Tho University (GPA 3.58). Currently building dental-clinic platforms at TekNix. I care about performance, clean interfaces, and shipping real products.",
+    "lead": "Fullstack Developer building web & ERP systems with <hl>React</hl>, <hl>Next.js</hl> and <hl>Odoo</hl>.",
+    "intro": "Software Engineering graduate from Can Tho University (GPA 3.55, Apr 2026). 1.5+ years across frontend, backend and Odoo ERP. I care about performance, clean interfaces, and shipping real products.",
     "viewProjects": "View projects",
     "getInTouch": "Get in touch"
   },
@@ -31,7 +31,7 @@
     "stackTitle": "Tech I work with",
     "stackDesc": "The stack I reach for to ship fast, accessible products end to end.",
     "ctaTitle": "Let's build something together",
-    "ctaDesc": "I'm open to full-time Frontend roles and interesting collaborations. Tell me what you're working on.",
+    "ctaDesc": "I'm open to full-time developer roles and interesting collaborations. Tell me what you're working on.",
     "ctaButton": "Get in touch"
   },
   "Card": {
@@ -47,14 +47,14 @@
   },
   "About": {
     "eyebrow": "About",
-    "title": "Frontend developer who likes shipping real things",
-    "p1": "I'm Huy, a final-year Software Engineering student at Can Tho University. Over three internships I've built production interfaces — from clinic websites at scale to internal dashboards and an AI-powered platform for my thesis.",
-    "p2": "I care about performance, accessibility and clean component design. My comfort zone is React and Next.js with TypeScript, but I'm just as happy wiring up a NestJS API or a PostgreSQL schema when a project needs it.",
+    "title": "Fullstack developer who likes shipping real things",
+    "p1": "I'm Huy, a Software Engineering graduate from Can Tho University (GPA 3.55). Over 1.5+ years and four roles I've built production software — clinic websites at scale, internal dashboards, an AI-powered platform, and Odoo ERP modules.",
+    "p2": "I care about performance, accessibility and clean component design. I'm comfortable across the stack: React and Next.js with TypeScript on the frontend, NestJS + PostgreSQL on the backend, and Python/Odoo for ERP.",
     "p3": "Outside of work I write study notes (you'll find some in the Docs section) and keep experimenting with new tools to ship faster without cutting corners.",
     "factEducation": "Education",
-    "factEducationValue": "Software Engineering, Can Tho University · GPA 3.58",
+    "factEducationValue": "Software Engineering, Can Tho University · GPA 3.55 · Graduated Apr 2026",
     "factCurrently": "Currently",
-    "factCurrentlyValue": "Frontend Intern at TekNix Technology",
+    "factCurrentlyValue": "Odoo Developer at BMS Tech",
     "factLocation": "Based in",
     "factLocationValue": "Ninh Kiều, Cần Thơ, Vietnam",
     "factLanguages": "Languages",
@@ -110,6 +110,7 @@
     "fieldTitle": "Title",
     "fieldTags": "Tags (comma separated)",
     "fieldSummary": "Short summary",
+    "fieldImage": "Cover image URL",
     "write": "Write",
     "preview": "Preview",
     "confirmDelete": "Delete this document? This cannot be undone.",

@@ -26,7 +26,7 @@ export default async function Footer() {
       <div className="container-page flex flex-col items-center justify-between gap-6 py-10 md:flex-row">
         <div className="text-center md:text-left">
           <div className="text-sm font-semibold text-foreground">Tran Hoang Huy</div>
-          <div className="text-sm text-muted-foreground">Frontend Developer · {year}</div>
+          <div className="text-sm text-muted-foreground">Fullstack Developer · {year}</div>
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-1">

@@ -3,10 +3,11 @@
 import { useState } from "react"
 import { FileText } from "lucide-react"
 import { Link } from "@/i18n/navigation"
-import ResourceManager, { type Field } from "@/components/admin/resource-manager"
+import ResourceManager from "@/components/admin/resource-manager"
+import type { Field } from "@/components/admin/types"
 
 const PROJECT_FIELDS: Field[] = [
-  { name: "title", label: "Title", type: "text" },
+  { name: "title", label: "Title", type: "text", required: true },
   { name: "year", label: "Year", type: "text" },
   { name: "subtitleEn", label: "Subtitle (EN)", type: "text" },
   { name: "subtitleVi", label: "Subtitle (VI)", type: "text" },
@@ -23,8 +24,8 @@ const PROJECT_FIELDS: Field[] = [
 ]
 
 const EXPERIENCE_FIELDS: Field[] = [
-  { name: "company", label: "Company", type: "text" },
-  { name: "role", label: "Role", type: "text" },
+  { name: "company", label: "Company", type: "text", required: true },
+  { name: "role", label: "Role", type: "text", required: true },
   { name: "periodEn", label: "Period (EN)", type: "text" },
   { name: "periodVi", label: "Period (VI)", type: "text" },
   { name: "descriptionEn", label: "Description (EN)", type: "textarea" },
@@ -35,9 +36,9 @@ const EXPERIENCE_FIELDS: Field[] = [
 ]
 
 const SKILL_FIELDS: Field[] = [
-  { name: "name", label: "Name", type: "text" },
+  { name: "name", label: "Name", type: "text", required: true },
   { name: "icon", label: "Icon URL", type: "text" },
-  { name: "category", label: "Category", type: "select", options: ["Frontend", "Backend & Data", "Tools & Platform"] },
+  { name: "category", label: "Category", type: "select", options: ["Frontend", "Backend", "Programming Languages", "Tools & Workflow", "AI-assisted Development", "Soft Skills"] },
   { name: "order", label: "Order", type: "number" },
 ]
 

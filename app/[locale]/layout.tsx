@@ -8,6 +8,7 @@ import { setRequestLocale } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/next'
 import '../../styles/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import QueryProvider from '@/components/query-provider'
 import Footer from '@/components/footer'
 import ChatbotLoader from '@/components/chatbot/chatbot-loader'
 import { routing } from '@/i18n/routing'
@@ -39,11 +40,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return {
     title: {
-      default: 'Trần Hoàng Huy – Frontend Developer | React / Next.js',
+      default: 'Trần Hoàng Huy – Fullstack Developer | React / Next.js / Odoo',
       template: '%s | Trần Hoàng Huy',
     },
     description:
-      'Trần Hoàng Huy là Frontend Developer chuyên về ReactJS và Next.js, tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.58). Hành trình, dự án và kinh nghiệm ở TekNix, Green Space Solution, UTA.',
+      'Trần Hoàng Huy là Fullstack Developer (React, Next.js, NestJS, Odoo), tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.55, 04/2026). Kinh nghiệm ở BMS Tech, TekNix, Green Space Solution, UTA.',
     keywords: [
       'Trần Hoàng Huy', 'Tran Hoang Huy', 'huykg1112',
       'Frontend Developer Vietnam', 'React Developer', 'Next.js Developer',
@@ -66,9 +67,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       },
     },
     openGraph: {
-      title: 'Trần Hoàng Huy – Frontend Developer | React / Next.js',
+      title: 'Trần Hoàng Huy – Fullstack Developer | React / Next.js / Odoo',
       description:
-        'Frontend Developer specializing in ReactJS & Next.js. Graduated Can Tho University (GPA 3.58). Experienced at TekNix Technology, Green Space Solution, UTA.',
+        'Fullstack Developer (React, Next.js, NestJS, Odoo). Graduated Can Tho University (GPA 3.55, Apr 2026). Experienced at BMS Tech, TekNix, Green Space Solution, UTA.',
       type: 'profile',
       locale: ogLocale,
       alternateLocale: ogLocale === 'vi_VN' ? 'en_US' : 'vi_VN',
@@ -80,8 +81,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Trần Hoàng Huy – Frontend Developer',
-      description: 'Frontend Developer (React / Next.js) | Portfolio & projects.',
+      title: 'Trần Hoàng Huy – Fullstack Developer',
+      description: 'Fullstack Developer (React / Next.js / Odoo) | Portfolio & projects.',
       images: [OG_IMAGE],
       creator: '@huykg1112',
     },
@@ -108,9 +109,9 @@ const personSchema = {
   givenName: 'Huy',
   familyName: 'Trần Hoàng',
   alternateName: ['Tran Hoang Huy', 'huykg1112'],
-  jobTitle: 'Frontend Developer',
+  jobTitle: 'Fullstack Developer',
   description:
-    'Frontend Developer chuyên về ReactJS và Next.js. Tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.58/4.0, 2025). Hiện là Frontend Intern tại TekNix Technology Corporation.',
+    'Fullstack Developer chuyên React, Next.js, NestJS và Odoo. Tốt nghiệp Kỹ thuật Phần mềm Đại học Cần Thơ (GPA 3.55/4.0, 04/2026). Hiện là Odoo Developer tại BMS Tech.',
   url: baseUrl,
   birthDate: '2002-12-11',
   image: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630, caption: 'Trần Hoàng Huy – Frontend Developer' },
@@ -125,9 +126,9 @@ const personSchema = {
     url: 'https://www.ctu.edu.vn',
     address: { '@type': 'PostalAddress', addressLocality: 'Cần Thơ', addressCountry: 'VN' },
   },
-  worksFor: { '@type': 'Organization', name: 'TekNix Technology Corporation', url: 'https://www.teknix.vn' },
+  worksFor: { '@type': 'Organization', name: 'BMS Tech' },
   knowsAbout: [
-    'ReactJS', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Shadcn/UI',
+    'ReactJS', 'Next.js', 'TypeScript', 'JavaScript', 'Python', 'Odoo', 'OWL.js', 'Tailwind CSS', 'Shadcn/UI',
     'Redux Toolkit', 'NestJS', 'RESTful APIs', 'GraphQL', 'PostgreSQL', 'Prisma ORM',
     'WordPress', 'Git', 'Vercel', 'Flutter', 'Responsive Design', 'SEO',
   ],
@@ -186,11 +187,13 @@ export default async function LocaleLayout({
         </Script>
 
         <NextIntlClientProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-            {children}
-            <Footer />
-            <ChatbotLoader />
-          </ThemeProvider>
+          <QueryProvider>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+              {children}
+              <Footer />
+              <ChatbotLoader />
+            </ThemeProvider>
+          </QueryProvider>
         </NextIntlClientProvider>
         <Analytics />
       </body>

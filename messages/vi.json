@@ -17,8 +17,8 @@
   },
   "Hero": {
     "availability": "Đang tìm vị trí toàn thời gian",
-    "lead": "Frontend Developer xây dựng web nhanh, dễ truy cập với <hl>React</hl> & <hl>Next.js</hl>.",
-    "intro": "Sinh viên năm cuối ngành Kỹ thuật Phần mềm, Đại học Cần Thơ (GPA 3.58). Hiện đang phát triển nền tảng cho phòng khám nha khoa tại TekNix. Mình chú trọng hiệu năng, giao diện gọn gàng và đưa sản phẩm thật ra thị trường.",
+    "lead": "Fullstack Developer xây ứng dụng web & hệ thống ERP với <hl>React</hl>, <hl>Next.js</hl> và <hl>Odoo</hl>.",
+    "intro": "Tốt nghiệp Kỹ thuật Phần mềm, Đại học Cần Thơ (GPA 3.55, 04/2026). Hơn 1.5 năm kinh nghiệm frontend, backend và Odoo ERP. Mình chú trọng hiệu năng, giao diện gọn gàng và đưa sản phẩm thật ra thị trường.",
     "viewProjects": "Xem dự án",
     "getInTouch": "Liên hệ"
   },
@@ -31,7 +31,7 @@
     "stackTitle": "Công nghệ mình dùng",
     "stackDesc": "Bộ công nghệ mình chọn để xây sản phẩm nhanh, dễ truy cập từ đầu đến cuối.",
     "ctaTitle": "Cùng nhau xây điều gì đó nhé",
-    "ctaDesc": "Mình sẵn sàng cho các vị trí Frontend toàn thời gian và những dự án thú vị. Kể mình nghe bạn đang làm gì nhé.",
+    "ctaDesc": "Mình sẵn sàng cho các vị trí developer toàn thời gian và những dự án thú vị. Kể mình nghe bạn đang làm gì nhé.",
     "ctaButton": "Liên hệ"
   },
   "Card": {
@@ -47,14 +47,14 @@
   },
   "About": {
     "eyebrow": "Giới thiệu",
-    "title": "Frontend developer thích đưa sản phẩm ra đời",
-    "p1": "Mình là Huy, sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học Cần Thơ. Qua ba kỳ thực tập, mình đã xây nhiều giao diện thực tế — từ hàng loạt website phòng khám, dashboard nội bộ đến nền tảng tích hợp AI cho luận văn.",
-    "p2": "Mình quan tâm tới hiệu năng, khả năng truy cập và thiết kế component gọn gàng. Vùng an toàn của mình là React và Next.js với TypeScript, nhưng mình cũng thoải mái dựng API NestJS hay schema PostgreSQL khi dự án cần.",
+    "title": "Fullstack developer thích đưa sản phẩm ra đời",
+    "p1": "Mình là Huy, tốt nghiệp Kỹ thuật Phần mềm tại Đại học Cần Thơ (GPA 3.55). Hơn 1.5 năm qua bốn vị trí, mình đã xây phần mềm thực tế — hàng loạt website phòng khám, dashboard nội bộ, nền tảng tích hợp AI và các module Odoo ERP.",
+    "p2": "Mình quan tâm hiệu năng, khả năng truy cập và thiết kế component gọn gàng. Mình thoải mái cả stack: React và Next.js với TypeScript ở frontend, NestJS + PostgreSQL ở backend, và Python/Odoo cho ERP.",
     "p3": "Ngoài công việc, mình viết ghi chú học tập (có vài bài trong mục Tài liệu) và liên tục thử các công cụ mới để làm nhanh hơn mà không cẩu thả.",
     "factEducation": "Học vấn",
-    "factEducationValue": "Kỹ thuật Phần mềm, Đại học Cần Thơ · GPA 3.58",
+    "factEducationValue": "Kỹ thuật Phần mềm, Đại học Cần Thơ · GPA 3.55 · Tốt nghiệp 04/2026",
     "factCurrently": "Hiện tại",
-    "factCurrentlyValue": "Thực tập Frontend tại TekNix Technology",
+    "factCurrentlyValue": "Odoo Developer tại BMS Tech",
     "factLocation": "Nơi ở",
     "factLocationValue": "Ninh Kiều, Cần Thơ, Việt Nam",
     "factLanguages": "Ngôn ngữ",
@@ -110,6 +110,7 @@
     "fieldTitle": "Tiêu đề",
     "fieldTags": "Thẻ (phân tách bằng dấu phẩy)",
     "fieldSummary": "Tóm tắt ngắn",
+    "fieldImage": "URL ảnh bìa",
     "write": "Viết",
     "preview": "Xem trước",
     "confirmDelete": "Xoá tài liệu này? Không thể hoàn tác.",

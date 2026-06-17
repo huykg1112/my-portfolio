@@ -61,10 +61,33 @@ type ExperienceRaw = {
 
 type SkillRaw = { name: string; icon: string; category: string }
 
-const CDN = "https://res.cloudinary.com/dq8qq2zed/image/upload"
-export const SKILL_CATEGORY_ORDER = ["Frontend", "Backend & Data", "Tools & Platform"]
+const SI = (slug: string) => `https://cdn.simpleicons.org/${slug}`
+export const SKILL_CATEGORY_ORDER = [
+  "Frontend",
+  "Backend",
+  "Programming Languages",
+  "Tools & Workflow",
+  "AI-assisted Development",
+  "Soft Skills",
+]
 
 export const SEED_PROJECTS: ProjectRaw[] = [
+  {
+    slug: "doko-school",
+    title: "DOKO — School Management (Odoo)",
+    subtitle: { en: "BMS Tech · Odoo modules", vi: "BMS Tech · Module Odoo" },
+    description: {
+      en: "Two modules on the DOKO school platform (Odoo 17): school_helpdesk for ticket intake, assignment, access control and status tracking; and school_kiosk, a touchscreen OWL.js SPA for class/exam schedules, honor boards, news and campus maps.",
+      vi: "Hai module trên nền tảng trường học DOKO (Odoo 17): school_helpdesk quản lý tiếp nhận ticket, phân công, phân quyền và trạng thái; và school_kiosk — SPA màn hình cảm ứng bằng OWL.js xem lịch học/thi, bảng vinh danh, tin tức và bản đồ trường.",
+    },
+    tech: ["Odoo 17", "Python", "OWL.js", "XML/QWeb", "PostgreSQL", "SCSS"],
+    tags: ["ERP", "Odoo"],
+    year: "2026",
+    role: "Odoo Developer",
+    company: "BMS Tech",
+    links: {},
+    featured: true,
+  },
   {
     slug: "devosecare-dashboard",
     title: "DevoseCare Dashboard",
@@ -73,7 +96,7 @@ export const SEED_PROJECTS: ProjectRaw[] = [
       en: "Internal operations dashboard for a medical center: Kanban appointment board with drag-and-drop, customer management, a CMS module and role-based permissions. Shipped in under four weeks.",
       vi: "Dashboard vận hành nội bộ cho một trung tâm y tế: bảng lịch hẹn Kanban kéo-thả, quản lý khách hàng, module CMS và phân quyền theo vai trò. Hoàn thành trong chưa đầy bốn tuần.",
     },
-    tech: ["ReactJS", "Vite", "Tailwind CSS", "Shadcn UI", "Zustand", "dnd-kit"],
+    tech: ["ReactJS", "Vite", "Tailwind CSS", "Shadcn UI", "Zustand", "dnd-kit", "React Query"],
     tags: ["Dashboard", "Drag & drop"],
     year: "2026",
     role: "Frontend Developer",
@@ -86,10 +109,10 @@ export const SEED_PROJECTS: ProjectRaw[] = [
     title: "E-commerce Farm Platform",
     subtitle: { en: "Bachelor's thesis", vi: "Luận văn tốt nghiệp" },
     description: {
-      en: "AI-powered agricultural e-commerce platform with crop-disease diagnosis (PhoBERT fine-tune, ~97% accuracy across 350+ diseases). Web with Next.js, mobile with Flutter, backend on NestJS + PostgreSQL.",
-      vi: "Nền tảng thương mại điện tử nông sản tích hợp AI chẩn đoán bệnh cây (PhoBERT fine-tune, ~97% độ chính xác trên 350+ loại bệnh). Web bằng Next.js, mobile bằng Flutter, backend NestJS + PostgreSQL.",
+      en: "AI-powered agricultural e-commerce platform with crop-disease diagnosis (PhoBERT fine-tune, ~97% accuracy across 350+ diseases). Web with Next.js, mobile with Flutter, backend on NestJS + PostgreSQL. Final thesis score 9.9/10.",
+      vi: "Nền tảng thương mại điện tử nông sản tích hợp AI chẩn đoán bệnh cây (PhoBERT fine-tune, ~97% độ chính xác trên 350+ loại bệnh). Web bằng Next.js, mobile bằng Flutter, backend NestJS + PostgreSQL. Điểm luận văn 9.9/10.",
     },
-    tech: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Flutter"],
+    tech: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "TypeORM", "Redux Toolkit", "Flutter"],
     tags: ["AI", "E-commerce", "Full-stack"],
     year: "2025",
     role: "Full-stack Developer",
@@ -111,7 +134,7 @@ export const SEED_PROJECTS: ProjectRaw[] = [
     role: "Full-stack Intern",
     company: "Green Space Solution",
     links: {},
-    featured: true,
+    featured: false,
   },
   {
     slug: "pago-dashboard",
@@ -165,6 +188,16 @@ export const SEED_PROJECTS: ProjectRaw[] = [
 
 export const SEED_EXPERIENCES: ExperienceRaw[] = [
   {
+    company: "BMS Tech",
+    role: "Fresher Odoo Developer",
+    period: { en: "Mar 2026 — Jun 2026", vi: "03/2026 — 06/2026" },
+    description: {
+      en: "Built Odoo 17 modules: school_helpdesk (ticket lifecycle, assignment, status tracking) and school_kiosk (touchscreen SPA for schedules, honor boards, news and feedback). Created reusable Odoo Website snippets and UIs for DOKO, DOKO Kiosk and client sites.",
+      vi: "Xây các module Odoo 17: school_helpdesk (vòng đời ticket, phân công, theo dõi trạng thái) và school_kiosk (SPA màn hình cảm ứng xem lịch, bảng vinh danh, tin tức, góp ý). Tạo snippet website Odoo tái sử dụng và UI cho DOKO, DOKO Kiosk cùng các site khách hàng.",
+    },
+    tech: ["Odoo 17", "Python", "OWL.js", "XML/QWeb", "PostgreSQL"],
+  },
+  {
     company: "TekNix Technology Corporation",
     role: "Frontend Intern",
     period: { en: "Sep 2025 — Present", vi: "09/2025 — Hiện tại" },
@@ -200,16 +233,51 @@ export const SEED_EXPERIENCES: ExperienceRaw[] = [
 ]
 
 export const SEED_SKILLS: SkillRaw[] = [
-  { name: "ReactJS", icon: `${CDN}/v1762912715/React-icon_aotcdf.png`, category: "Frontend" },
-  { name: "Next.js", icon: `${CDN}/v1762912714/nextjs_icon_myecuu.png`, category: "Frontend" },
-  { name: "TypeScript", icon: `${CDN}/v1762912715/Typescript_icon_mirpqm.png`, category: "Frontend" },
-  { name: "Tailwind CSS", icon: `${CDN}/v1762914096/tailwind_icon_dunczr.svg`, category: "Frontend" },
-  { name: "NestJS", icon: `${CDN}/v1762913912/NestJS_icon_awrwgu.png`, category: "Backend & Data" },
-  { name: "PostgreSQL", icon: `${CDN}/v1762912715/Postgresql_icon_drdedp.png`, category: "Backend & Data" },
-  { name: "GraphQL", icon: `${CDN}/v1762912715/GraphQL_icon_sntg2p.png`, category: "Backend & Data" },
-  { name: "REST APIs", icon: `${CDN}/v1762912715/rest-api-icon_lupkys.png`, category: "Backend & Data" },
-  { name: "Git & GitHub", icon: `${CDN}/v1762912715/github_icon_o8h8k9.png`, category: "Tools & Platform" },
-  { name: "WordPress", icon: `${CDN}/v1762912716/wordpress-icon_ewbqi5.png`, category: "Tools & Platform" },
+  // Frontend
+  { name: "ReactJS", icon: SI("react"), category: "Frontend" },
+  { name: "Next.js", icon: SI("nextdotjs"), category: "Frontend" },
+  { name: "WordPress", icon: SI("wordpress"), category: "Frontend" },
+  { name: "Redux Toolkit", icon: SI("redux"), category: "Frontend" },
+  { name: "Zustand", icon: "", category: "Frontend" },
+  { name: "Tailwind CSS", icon: SI("tailwindcss"), category: "Frontend" },
+  { name: "Shadcn/UI", icon: SI("shadcnui"), category: "Frontend" },
+  { name: "Responsive Design", icon: "", category: "Frontend" },
+  { name: "UI/UX Best Practices", icon: "", category: "Frontend" },
+  { name: "OWL.js", icon: "", category: "Frontend" },
+  // Backend
+  { name: "RESTful APIs", icon: "", category: "Backend" },
+  { name: "NestJS", icon: SI("nestjs"), category: "Backend" },
+  { name: "JWT Authentication", icon: SI("jsonwebtokens"), category: "Backend" },
+  { name: "OAuth 2.0", icon: SI("auth0"), category: "Backend" },
+  { name: "PostgreSQL", icon: SI("postgresql"), category: "Backend" },
+  { name: "TypeORM", icon: SI("typeorm"), category: "Backend" },
+  { name: "Odoo (17,18,19)", icon: SI("odoo"), category: "Backend" },
+  // Programming Languages
+  { name: "JavaScript", icon: SI("javascript"), category: "Programming Languages" },
+  { name: "TypeScript", icon: SI("typescript"), category: "Programming Languages" },
+  { name: "Python", icon: SI("python"), category: "Programming Languages" },
+  { name: "PHP", icon: SI("php"), category: "Programming Languages" },
+  { name: "XML", icon: "", category: "Programming Languages" },
+  // Tools & Workflow
+  { name: "Git", icon: SI("git"), category: "Tools & Workflow" },
+  { name: "GitHub", icon: SI("github"), category: "Tools & Workflow" },
+  { name: "GitLab", icon: SI("gitlab"), category: "Tools & Workflow" },
+  { name: "Postman", icon: SI("postman"), category: "Tools & Workflow" },
+  { name: "Vercel", icon: SI("vercel"), category: "Tools & Workflow" },
+  { name: "DBeaver", icon: SI("dbeaver"), category: "Tools & Workflow" },
+  { name: "VS Code", icon: "", category: "Tools & Workflow" },
+  { name: "Framer", icon: SI("framer"), category: "Tools & Workflow" },
+  { name: "Google Colab", icon: SI("googlecolab"), category: "Tools & Workflow" },
+  // AI-assisted Development
+  { name: "GitHub Copilot", icon: SI("githubcopilot"), category: "AI-assisted Development" },
+  { name: "ChatGPT", icon: SI("openai"), category: "AI-assisted Development" },
+  { name: "Claude", icon: SI("claude"), category: "AI-assisted Development" },
+  // Soft Skills
+  { name: "Communication", icon: "", category: "Soft Skills" },
+  { name: "Teamwork", icon: "", category: "Soft Skills" },
+  { name: "Problem Solving", icon: "", category: "Soft Skills" },
+  { name: "Reporting", icon: "", category: "Soft Skills" },
+  { name: "Team Leadership", icon: "", category: "Soft Skills" },
 ]
 
 // ─── Seed-row mappers (used by prisma/seed.ts) ───────────────────────────────
