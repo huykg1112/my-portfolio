@@ -6,6 +6,7 @@ import Header from "@/components/header"
 import Reveal from "@/components/reveal"
 import SectionHeading from "@/components/section-heading"
 import ExperienceTimeline from "@/components/about/experience-timeline"
+import SkillIcon from "@/components/skill-icon"
 import { getExperiences, getSkillGroups } from "@/lib/content"
 
 export const metadata: Metadata = {
@@ -89,18 +90,16 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       {/* Skills */}
       <section className="container-page py-16 pb-28">
         <SectionHeading eyebrow={t("skillsEyebrow")} title={t("skillsTitle")} />
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, gi) => (
-            <Reveal key={group.category} delay={gi * 0.08}>
-              <div className="rounded-xl border border-border bg-card p-5">
+            <Reveal key={group.category} delay={gi * 0.06}>
+              <div className="h-full rounded-xl border border-border bg-card p-5">
                 <p className="text-sm font-semibold text-foreground">{group.category}</p>
-                <ul className="mt-4 flex flex-wrap gap-2">
+                <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                   {group.items.map((skill) => (
-                    <li
-                      key={skill.name}
-                      className="rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium text-muted-foreground"
-                    >
-                      {skill.name}
+                    <li key={skill.name} className="flex items-center gap-2.5">
+                      <SkillIcon src={skill.icon} name={skill.name} />
+                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
                     </li>
                   ))}
                 </ul>

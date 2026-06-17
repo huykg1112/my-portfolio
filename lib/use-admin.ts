@@ -1,44 +1,39 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 
 export function useAdmin() {
-  const [authed, setAuthed] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const qc = useQueryClient()
 
-  const refresh = useCallback(async () => {
-    try {
-      const r = await fetch("/api/admin/me", { cache: "no-store" })
-      const j = await r.json()
-      setAuthed(Boolean(j.authed))
-    } catch {
-      setAuthed(false)
-    } finally {
-      setLoading(false)
-    }
-  }, [])
+  const { data, isLoading } = useQuery({
+    queryKey: ["admin-me"],
+    queryFn: () => fetch("/api/admin/me", { cache: "no-store" }).then((r) => r.json()),
+    staleTime: 60_000,
+  })
 
-  useEffect(() => {
-    refresh()
-  }, [refresh])
+  const authed = Boolean(data?.authed)
 
-  const login = useCallback(async (password: string) => {
-    const r = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    })
-    if (r.ok) {
-      setAuthed(true)
-      return true
-    }
-    return false
-  }, [])
+  const login = useCallback(
+    async (password: string) => {
+      const r = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      })
+      if (r.ok) {
+        await qc.invalidateQueries({ queryKey: ["admin-me"] })
+        return true
+      }
+      return false
+    },
+    [qc],
+  )
 
   const logout = useCallback(async () => {
     await fetch("/api/admin/logout", { method: "POST" })
-    setAuthed(false)
-  }, [])
+    await qc.invalidateQueries({ queryKey: ["admin-me"] })
+  }, [qc])
 
-  return { authed, loading, login, logout, refresh }
+  return { authed, loading: isLoading, login, logout }
 }

@@ -10,7 +10,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/brand-icons"
 const AVATAR =
   "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
 
-const STACK = ["React", "Next.js", "TypeScript", "NestJS", "PostgreSQL", "Tailwind CSS"]
+const STACK = ["React", "Next.js", "TypeScript", "NestJS", "Odoo", "PostgreSQL"]
 
 const SOCIALS = [
   { href: "https://github.com/huykg1112", label: "GitHub", Icon: GithubIcon },

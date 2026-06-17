@@ -16,6 +16,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
   const router = useRouter()
   const [title, setTitle] = useState(initial?.title ?? "")
   const [summary, setSummary] = useState(initial?.summary ?? "")
+  const [imgUrl, setImgUrl] = useState(initial?.imgUrl ?? "")
   const [tags, setTags] = useState(initial?.tags.join(", ") ?? "")
   const [content, setContent] = useState(initial?.content ?? "# New document\n\nStart writing in **Markdown**…")
   const [mobileView, setMobileView] = useState<"write" | "preview">("write")
@@ -28,6 +29,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
     const input = {
       title,
       summary,
+      imgUrl,
       tags: tags.split(",").map((s) => s.trim()).filter(Boolean),
       content,
     }
@@ -106,6 +108,13 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
         <input className={field} placeholder={t("fieldTags")} value={tags} onChange={(e) => setTags(e.target.value)} aria-label={t("fieldTags")} />
       </div>
       <input className={field} placeholder={t("fieldSummary")} value={summary} onChange={(e) => setSummary(e.target.value)} aria-label={t("fieldSummary")} />
+      <div>
+        <input className={field} placeholder={t("fieldImage")} value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} aria-label={t("fieldImage")} />
+        {imgUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={imgUrl} alt="" className="mt-2 max-h-40 rounded-lg border border-border object-cover" />
+        )}
+      </div>
 
       {/* Mobile view switch */}
       <div className="flex gap-1 rounded-lg border border-border bg-card p-1 sm:hidden">

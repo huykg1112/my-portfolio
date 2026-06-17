@@ -13,6 +13,7 @@ model Doc {
   slug      String   @unique
   title     String
   summary   String   @default("")
+  imgUrl    String   @default("")
   tags      String[] @default([])
   content   String   @default("")
   createdAt DateTime @default(now())

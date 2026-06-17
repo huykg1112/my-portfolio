@@ -21,7 +21,7 @@ Facebook: https://www.facebook.com/tran.huy.113299/
 --- HỌC VẤN ---
 Trường: Đại học Cần Thơ (Can Tho University)
 Ngành: Kỹ thuật Phần mềm (Software Engineering)
-Thời gian: 8/2022 – 12/2025 | GPA: 3.58/4.0
+Thời gian: 8/2022 – 4/2026 (đã tốt nghiệp) | GPA: 3.55/4.0
 
 --- KỸ NĂNG ---
 Frontend: ReactJS, Next.js, TypeScript, JavaScript, PHP
@@ -30,26 +30,34 @@ State management: Redux Toolkit, Jotai, Context API
 Animation: Framer Motion
 Backend: NestJS, RESTful APIs, GraphQL, JWT, OAuth 2.0
 Database: PostgreSQL, TypeORM, Prisma ORM, MySQL
+ERP & Ngôn ngữ: Odoo (17/18/19), Python, OWL.js, XML/QWeb, PHP
 CMS: WordPress, Elementor, Strapi, TanaCMS
 Mobile: Flutter
 DevOps: Git, GitHub, Vercel
 Công cụ AI: ChatGPT, Gemini, v0, Lovable
 
---- KINH NGHIỆM THỰC TẬP ---
-1. TekNix Technology Corporation – Frontend Intern (9/2025 – hiện tại)
+--- KINH NGHIỆM LÀM VIỆC ---
+1. BMS Tech – Fresher Odoo Developer (3/2026 – 6/2026)
+   - Phát triển module Odoo 17: school_helpdesk (quản lý ticket) và school_kiosk (SPA màn hình cảm ứng OWL.js)
+   - Snippet website Odoo; UI cho DOKO, DOKO Kiosk và các site khách hàng
+   - Stack: Odoo 17, Python, OWL.js, XML/QWeb, PostgreSQL
+
+2. TekNix Technology Corporation – Frontend Intern (9/2025 – hiện tại)
    - Bảo trì và phát triển hơn 60 website phòng khám nha khoa quốc tế (dự án Patient Honey)
    - Stack: ReactJS, Next.js, WordPress, TanaCMS, Tailwind CSS, Framer, SEO
 
-2. Green Space Solution JSC – Fullstack Intern (6/2025 – 8/2025)
+3. Green Space Solution JSC – Fullstack Intern (6/2025 – 8/2025)
    - Phát triển hệ thống quản lý vận tải AutoTMS
    - Stack: Next.js, Hero UI, REST API, NestJS, Strapi, Prisma ORM, GraphQL
 
-3. UTA Co., Ltd – IT Intern (6/2024 – 4/2025)
+4. UTA Co., Ltd – IT Intern (6/2024 – 4/2025)
    - Xây dựng tính năng chẩn đoán sâu bệnh bằng AI (PhoBERT, ~97% accuracy)
    - Dự án: PagoSolution Dashboard, IECES Project
    - Stack: ReactJS, NestJS, REST API, PhoBERT, Tailwind CSS, WordPress
 
 --- DỰ ÁN NỔI BẬT ---
+• DOKO (BMS Tech, 5–6/2026) — Odoo 17: module school_helpdesk (quản lý ticket) & school_kiosk (SPA OWL.js: lịch học/thi, bảng vinh danh, tin tức, bản đồ trường). Stack: Odoo 17, Python, OWL.js, XML, PostgreSQL, SCSS.
+
 1. DevoseCare Dashboard (TekNix, 2/2026)
    - Dashboard quản lý nội bộ cho trung tâm y tế DevoseCare
    - Kanban kéo thả quản lý lịch hẹn, quản lý khách hàng, CMS, phân quyền
@@ -66,7 +74,7 @@ Công cụ AI: ChatGPT, Gemini, v0, Lovable
 
 4. E-commerce Farm Platform – Luận văn tốt nghiệp (4/2025 – 8/2025)
    - Nền tảng thương mại điện tử nông sản tích hợp AI chẩn đoán bệnh cây
-   - AI dựa trên PhoBERT fine-tuned, ~97% accuracy, >350 bệnh cây
+   - AI dựa trên PhoBERT fine-tuned, ~97% accuracy, >350 bệnh cây (điểm luận văn 9.9/10)
    - Stack: Next.js, NestJS, PostgreSQL, TypeORM, PhoBERT
    - Repo: https://github.com/huykg1112/project-ecommerce-farm
 

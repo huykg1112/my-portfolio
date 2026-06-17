@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json().catch(() => ({}))
-  const { title, summary, tags, content } = body as Record<string, unknown>
+  const { title, summary, imgUrl, tags, content } = body as Record<string, unknown>
 
   if (typeof title !== "string" || !title.trim()) {
     return NextResponse.json({ error: "Title is required" }, { status: 400 })
@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
         slug,
         title: title.trim(),
         summary: typeof summary === "string" ? summary.trim() : "",
+        imgUrl: typeof imgUrl === "string" ? imgUrl.trim() : "",
         tags: Array.isArray(tags) ? tags.map(String).map((t) => t.trim()).filter(Boolean) : [],
         content: typeof content === "string" ? content : "",
       },

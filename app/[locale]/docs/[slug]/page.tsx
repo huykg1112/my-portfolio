@@ -39,6 +39,15 @@ export default async function DocDetailPage({ params }: { params: Promise<{ loca
               <DocEditButton slug={doc.slug} />
             </div>
 
+            {doc.imgUrl && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={doc.imgUrl}
+                alt=""
+                className="mt-6 max-h-80 w-full rounded-xl border border-border object-cover"
+              />
+            )}
+
             <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-medium text-muted-foreground">
               <time className="tnum" dateTime={doc.updatedAt.toISOString()}>
                 {t("updated", { date: fmt.format(doc.updatedAt) })}
