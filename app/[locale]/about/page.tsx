@@ -15,8 +15,9 @@ export const metadata: Metadata = {
     "About Tran Hoang Huy — Frontend Developer specialising in React & Next.js, Software Engineering graduate from Can Tho University (GPA 3.58).",
 }
 
-const AVATAR =
-  "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
+// Light: FRONT by default, flips to BACK on hover. Dark: reversed.
+const AVATAR_FRONT = "https://res.cloudinary.com/dq8qq2zed/image/upload/v1776170060/TranHoangHuy_2_tsghsx.jpg"
+const AVATAR_BACK = "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -50,15 +51,29 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </div>
 
           <Reveal className="lg:pt-2">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-              <Image
-                src={AVATAR}
-                alt="Portrait of Tran Hoang Huy"
-                width={440}
-                height={520}
-                className="h-auto w-full object-cover"
-                style={{ objectPosition: "top center" }}
-              />
+            <div className="group [perspective:1200px]">
+              <div className="relative aspect-[4/5] w-full transform-3d transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-x-180 dark:rotate-x-180 dark:group-hover:rotate-x-0">
+                <div className="absolute inset-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm backface-hidden">
+                  <Image
+                    src={AVATAR_FRONT}
+                    alt="Portrait of Tran Hoang Huy"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 340px"
+                    className="object-cover"
+                    style={{ objectPosition: "top center" }}
+                  />
+                </div>
+                <div className="absolute inset-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm backface-hidden rotate-x-180">
+                  <Image
+                    src={AVATAR_BACK}
+                    alt="Portrait of Tran Hoang Huy"
+                    fill
+                    sizes="(max-width: 1024px) 90vw, 340px"
+                    className="object-cover"
+                    style={{ objectPosition: "top center" }}
+                  />
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
