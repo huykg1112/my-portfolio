@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useTranslations } from "next-intl"
-import { Eye, Pencil, Save, Trash2, X } from "lucide-react"
+import { Eye, Pencil, Save, Trash2, Upload, X } from "lucide-react"
 import { useRouter } from "@/i18n/navigation"
 import Markdown from "@/components/docs/markdown"
 import { createDoc, updateDoc, removeDoc } from "@/lib/docs-api"
@@ -43,6 +43,18 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
     }
   }
 
+  const onImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const text = await file.text()
+    setContent(text)
+    if (!title.trim()) {
+      const heading = text.match(/^#\s+(.+)$/m)?.[1]?.trim()
+      setTitle(heading || file.name.replace(/\.(md|markdown|mdx|txt)$/i, ""))
+    }
+    e.target.value = "" // allow re-importing the same file
+  }
+
   const onDelete = async () => {
     if (!initial || !confirm(t("confirmDelete"))) return
     setSaving(true)
@@ -61,9 +73,21 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
     <div className="space-y-5">
       {/* Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          {initial ? t("editTitle") : t("newTitle")}
-        </h1>
+        <div className="flex items-center gap-3">
+          <h1 className="text-xl font-semibold tracking-tight text-foreground">
+            {initial ? t("editTitle") : t("newTitle")}
+          </h1>
+          <label className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 focus-within:ring-2 focus-within:ring-ring">
+            <Upload className="h-4 w-4" />
+            {t("import")}
+            <input
+              type="file"
+              accept=".md,.markdown,.mdx,.txt,text/markdown,text/plain"
+              onChange={onImport}
+              className="hidden"
+            />
+          </label>
+        </div>
         <div className="flex items-center gap-2">
           {initial && (
             <button

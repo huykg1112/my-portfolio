@@ -7,8 +7,10 @@ import { ArrowUpRight, Mail } from "lucide-react"
 import { Link } from "@/i18n/navigation"
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons"
 
-const AVATAR =
-  "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
+// Two portraits. Light: shows FRONT by default, flips to BACK on hover.
+// Dark:  shows BACK by default, flips to FRONT on hover.
+const AVATAR_FRONT = "https://res.cloudinary.com/dq8qq2zed/image/upload/v1776170060/TranHoangHuy_2_tsghsx.jpg"
+const AVATAR_BACK = "https://res.cloudinary.com/dq8qq2zed/image/upload/v1762851574/my-img-portfolio_tbp62j.png"
 
 const STACK = ["React", "Next.js", "TypeScript", "NestJS", "Odoo", "PostgreSQL"]
 
@@ -111,16 +113,33 @@ export default function Hero() {
           className="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto"
         >
           <div className="absolute -inset-3 -z-10 rounded-3xl bg-linear-to-tr from-primary/10 to-accent/10" aria-hidden />
-          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
-            <Image
-              src={AVATAR}
-              alt="Portrait of Tran Hoang Huy"
-              width={520}
-              height={620}
-              priority
-              className="h-auto w-full object-cover"
-              style={{ objectPosition: "top center" }}
-            />
+          <div className="group [perspective:1200px]">
+            <div className="relative aspect-[4/5] w-full transform-3d transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-x-180 dark:rotate-x-180 dark:group-hover:rotate-x-0">
+              {/* Front — image 1 (light default / dark on hover) */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl border border-border bg-card shadow-md backface-hidden">
+                <Image
+                  src={AVATAR_FRONT}
+                  alt="Portrait of Tran Hoang Huy"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 400px"
+                  className="object-cover"
+                  style={{ objectPosition: "top center" }}
+                />
+              </div>
+              {/* Back — image 2 (dark default / light on hover) */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl border border-border bg-card shadow-md backface-hidden rotate-x-180">
+                <Image
+                  src={AVATAR_BACK}
+                  alt="Portrait of Tran Hoang Huy"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 400px"
+                  className="object-cover"
+                  style={{ objectPosition: "top center" }}
+                />
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

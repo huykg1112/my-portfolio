@@ -171,7 +171,7 @@ export default async function LocaleLayout({
         <meta name="geo.region" content="VN" />
         <meta name="geo.placename" content="Cần Thơ, Việt Nam" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-md focus:bg-primary focus:text-primary-foreground focus:font-semibold"
