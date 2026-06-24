@@ -1,10 +1,11 @@
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Lock } from "lucide-react"
 import { getLocale, getTranslations, setRequestLocale } from "next-intl/server"
 import { Link } from "@/i18n/navigation"
 import Header from "@/components/header"
 import Markdown from "@/components/docs/markdown"
 import DocEditButton from "@/components/docs/doc-edit-button"
 import { getDoc } from "@/lib/docs"
+import { isAdmin } from "@/lib/auth"
 
 export const dynamic = "force-dynamic"
 
@@ -13,13 +14,14 @@ export default async function DocDetailPage({ params }: { params: Promise<{ loca
   setRequestLocale(locale)
   const t = await getTranslations("Docs")
   const doc = await getDoc(slug)
+  const admin = await isAdmin()
   const fmt = new Intl.DateTimeFormat(await getLocale(), { day: "numeric", month: "short", year: "numeric" })
 
   return (
     <main id="main-content" className="min-h-screen bg-background">
       <Header />
       <section className="container-page pt-32 pb-24">
-        {!doc ? (
+        {!doc || (!doc.published && !admin) ? (
           <div className="mx-auto max-w-3xl rounded-xl border border-dashed border-border bg-card p-12 text-center">
             <p className="text-sm text-muted-foreground">{t("notFound")}</p>
             <Link href="/docs" className="mt-3 inline-block text-sm font-medium text-primary hover:brightness-110">
@@ -52,6 +54,12 @@ export default async function DocDetailPage({ params }: { params: Promise<{ loca
               <time className="tnum" dateTime={doc.updatedAt.toISOString()}>
                 {t("updated", { date: fmt.format(doc.updatedAt) })}
               </time>
+              {!doc.published && (
+                <span className="inline-flex items-center gap-1 rounded-full border border-border bg-secondary px-2 py-0.5 text-secondary-foreground">
+                  <Lock className="h-3 w-3" />
+                  {t("private")}
+                </span>
+              )}
               {doc.tags.map((tag) => (
                 <span key={tag} className="rounded-full bg-secondary px-2 py-0.5 text-secondary-foreground">{tag}</span>
               ))}
