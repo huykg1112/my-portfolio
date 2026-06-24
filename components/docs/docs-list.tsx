@@ -1,12 +1,14 @@
 import { getLocale, getTranslations } from "next-intl/server"
-import { FileText } from "lucide-react"
+import { FileText, Lock } from "lucide-react"
 import { Link } from "@/i18n/navigation"
 import { getDocs } from "@/lib/docs"
+import { isAdmin } from "@/lib/auth"
 
 export default async function DocsList() {
   const t = await getTranslations("Docs")
   const locale = await getLocale()
-  const docs = await getDocs()
+  const admin = await isAdmin()
+  const docs = await getDocs({ includePrivate: admin })
   const fmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" })
 
   if (docs.length === 0) {
@@ -46,6 +48,12 @@ export default async function DocsList() {
               <time className="tnum" dateTime={doc.updatedAt.toISOString()}>
                 {fmt.format(doc.updatedAt)}
               </time>
+              {!doc.published && (
+                <span className="ml-auto inline-flex items-center gap-1 rounded-full border border-border bg-secondary px-2 py-0.5 text-[11px] text-secondary-foreground">
+                  <Lock className="h-3 w-3" />
+                  {t("private")}
+                </span>
+              )}
             </div>
             <h3 className="mt-2 text-base font-semibold tracking-tight text-foreground group-hover:text-primary">
               {doc.title}

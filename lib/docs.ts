@@ -7,6 +7,7 @@ export type Doc = {
   imgUrl: string
   tags: string[]
   content: string
+  published: boolean
   updatedAt: Date
 }
 
@@ -16,7 +17,19 @@ export type DocInput = {
   imgUrl: string
   tags: string[]
   content: string
+  published: boolean
 }
+
+const SELECT = {
+  slug: true,
+  title: true,
+  summary: true,
+  imgUrl: true,
+  tags: true,
+  content: true,
+  published: true,
+  updatedAt: true,
+} as const
 
 /** Fallback sample docs shown when no database is configured yet. */
 const SEED: Doc[] = [
@@ -26,6 +39,7 @@ const SEED: Doc[] = [
     summary: "Notes on routing, server components and data fetching in the App Router.",
     imgUrl: "",
     tags: ["Next.js", "React"],
+    published: true,
     updatedAt: new Date("2025-06-04"),
     content: `# Next.js App Router — study notes
 
@@ -43,15 +57,6 @@ export default async function Page() {
   return <main>{data.title}</main>
 }
 \`\`\`
-
-## Data fetching
-
-> Fetch where you use it. Next dedupes identical requests in one render pass.
-
-| Feature | Server | Client |
-| --- | --- | --- |
-| async/await | ✅ | ❌ |
-| useState | ❌ | ✅ |
 `,
   },
   {
@@ -60,10 +65,9 @@ export default async function Page() {
     summary: "The grid properties I always forget, in one place.",
     imgUrl: "",
     tags: ["CSS"],
+    published: true,
     updatedAt: new Date("2025-05-20"),
     content: `# CSS Grid cheatsheet
-
-A quick reference for layout work.
 
 \`\`\`css
 .grid {
@@ -72,30 +76,25 @@ A quick reference for layout work.
   gap: 1rem;
 }
 \`\`\`
-
-- \`place-items: center\` -> center children on both axes.
-- \`grid-column: 1 / -1\` -> span the full row.
 `,
   },
 ]
 
-export async function getDocs(): Promise<Doc[]> {
+export async function getDocs(opts?: { includePrivate?: boolean }): Promise<Doc[]> {
   try {
     return await prisma.doc.findMany({
+      where: opts?.includePrivate ? undefined : { published: true },
       orderBy: { updatedAt: "desc" },
-      select: { slug: true, title: true, summary: true, imgUrl: true, tags: true, content: true, updatedAt: true },
+      select: SELECT,
     })
   } catch {
-    return SEED
+    return opts?.includePrivate ? SEED : SEED.filter((d) => d.published)
   }
 }
 
 export async function getDoc(slug: string): Promise<Doc | null> {
   try {
-    return await prisma.doc.findUnique({
-      where: { slug },
-      select: { slug: true, title: true, summary: true, imgUrl: true, tags: true, content: true, updatedAt: true },
-    })
+    return await prisma.doc.findUnique({ where: { slug }, select: SELECT })
   } catch {
     return SEED.find((d) => d.slug === slug) ?? null
   }

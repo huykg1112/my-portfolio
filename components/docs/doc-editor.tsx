@@ -18,6 +18,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
   const [summary, setSummary] = useState(initial?.summary ?? "")
   const [imgUrl, setImgUrl] = useState(initial?.imgUrl ?? "")
   const [tags, setTags] = useState(initial?.tags.join(", ") ?? "")
+  const [published, setPublished] = useState(initial?.published ?? true)
   const [content, setContent] = useState(initial?.content ?? "# New document\n\nStart writing in **Markdown**…")
   const [mobileView, setMobileView] = useState<"write" | "preview">("write")
   const [saving, setSaving] = useState(false)
@@ -32,6 +33,7 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
       imgUrl,
       tags: tags.split(",").map((s) => s.trim()).filter(Boolean),
       content,
+      published,
     }
     try {
       const slug = initial ? await updateDoc(initial.slug, input) : await createDoc(input)
@@ -138,6 +140,22 @@ export default function DocEditor({ initial }: { initial?: Doc }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img src={imgUrl} alt="" className="mt-2 max-h-40 rounded-lg border border-border object-cover" />
         )}
+      </div>
+
+      <div className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background px-3.5 py-2.5">
+        <div className="min-w-0">
+          <p className="text-sm font-medium text-foreground">{t("visibility")}</p>
+          <p className="text-xs text-muted-foreground">{published ? t("publicHint") : t("privateHint")}</p>
+        </div>
+        <label className="inline-flex shrink-0 cursor-pointer items-center gap-2 text-sm font-medium text-foreground">
+          <input
+            type="checkbox"
+            checked={published}
+            onChange={(e) => setPublished(e.target.checked)}
+            className="h-4 w-4 rounded border-border"
+          />
+          {published ? t("public") : t("private")}
+        </label>
       </div>
 
       {/* Mobile view switch */}

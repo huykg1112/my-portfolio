@@ -5,7 +5,11 @@ import { isAdmin } from "@/lib/auth"
 
 export async function GET() {
   try {
-    const docs = await prisma.doc.findMany({ orderBy: { updatedAt: "desc" } })
+    const includePrivate = await isAdmin()
+    const docs = await prisma.doc.findMany({
+      where: includePrivate ? undefined : { published: true },
+      orderBy: { updatedAt: "desc" },
+    })
     return NextResponse.json({ docs })
   } catch {
     return NextResponse.json({ error: "Database unavailable" }, { status: 503 })
@@ -18,7 +22,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json().catch(() => ({}))
-  const { title, summary, imgUrl, tags, content } = body as Record<string, unknown>
+  const { title, summary, imgUrl, tags, content, published } = body as Record<string, unknown>
 
   if (typeof title !== "string" || !title.trim()) {
     return NextResponse.json({ error: "Title is required" }, { status: 400 })
@@ -38,6 +42,7 @@ export async function POST(req: NextRequest) {
         imgUrl: typeof imgUrl === "string" ? imgUrl.trim() : "",
         tags: Array.isArray(tags) ? tags.map(String).map((t) => t.trim()).filter(Boolean) : [],
         content: typeof content === "string" ? content : "",
+        published: typeof published === "boolean" ? published : true,
       },
     })
     return NextResponse.json({ slug: doc.slug }, { status: 201 })
